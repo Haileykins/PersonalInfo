@@ -1,0 +1,9 @@
+name: ${project.name}
+version: ${project.version}
+author: Haileykins
+description: Simple Plugin to Handle and Control Players Personal Data
+main: PersonalInfo
+
+commands:
+    pi:
+      description: The Main Command
