@@ -1,5 +1,6 @@
 import Commands.PICommand;
 import Utils.ConfigUtils;
+import Utils.MessageUtils;
 import Utils.PlayerDataHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -33,6 +34,10 @@ public class PersonalInfo extends JavaPlugin {
         getLogger().info("Loading Config!");
         ConfigUtils.setConfig();
         getLogger().info("Config Loaded!");
+        MessageUtils.plugin = this;
+        getLogger().info("Loading Language File");
+        MessageUtils.loadLang();
+        getLogger().info("Language File Loaded!");
 
         getCommand("pi").setExecutor(new PICommand());
         getLogger().info("Enabled");

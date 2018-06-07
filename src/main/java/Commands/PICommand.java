@@ -1,6 +1,7 @@
 package Commands;
 
 import Utils.CommandUtils;
+import Utils.MessageUtils;
 import Utils.PlayerDataHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -34,18 +35,22 @@ public class PICommand implements CommandExecutor {
                     PlayerDataHandler.setInfoSelf(player, args[1], args[2]);
                     return true;
                 } else {
-                    player.sendMessage("Please Specify Your " + args[1]);
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                            MessageUtils.prefix + " " + MessageUtils.specifyOptionToSet).
+                            replace("{option}", args[1]));
                     return true;
                 }
             } else {
-                sender.sendMessage("You must be a player to use this command!");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.prefix + " " + MessageUtils.mustBeAPlayer));
                 return true;
             }
         }
 
         if (args[0].equalsIgnoreCase("show")) {
             if (args.length != 2) {
-                sender.sendMessage("Invalid Number of Arguments!");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.prefix + " " + MessageUtils.invalidNumberOfArguments));
                 return true;
             } else {
                 for (OfflinePlayer offlinePlayer : Bukkit.getServer().getOfflinePlayers()) {
@@ -54,7 +59,9 @@ public class PICommand implements CommandExecutor {
                         return true;
                     }
                 }
-                sender.sendMessage(ChatColor.RED + "Player " + args[1] + " not found!");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.prefix + " " + MessageUtils.playerNotFound.
+                                replace("{player}", args[1])));
                 return true;
             }
         }
@@ -65,7 +72,8 @@ public class PICommand implements CommandExecutor {
                 PlayerDataHandler.showInfoSelf(player);
                 return true;
             } else {
-                sender.sendMessage("You must be a player to use this command!");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.prefix + " " + MessageUtils.mustBeAPlayer));
                 return true;
             }
         }
@@ -74,7 +82,8 @@ public class PICommand implements CommandExecutor {
             if ((sender instanceof Player)) {
                 Player player = (Player) sender;
                 if (args.length < 2) {
-                    player.sendMessage("Invalid Number of Arguments");
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                            MessageUtils.prefix + " " + MessageUtils.invalidNumberOfArguments));
                     return true;
                 } else {
                     if (args.length == 2) {
@@ -89,7 +98,8 @@ public class PICommand implements CommandExecutor {
         if (sender.hasPermission("personalinfo.admin")) {
             if (args[0].equalsIgnoreCase("delothers")) {
                 if (args.length != 3) {
-                    sender.sendMessage("Invalid Number of Arguments");
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                            MessageUtils.prefix + " " + MessageUtils.invalidNumberOfArguments));
                     return true;
                 } else {
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
@@ -98,12 +108,14 @@ public class PICommand implements CommandExecutor {
                             return true;
                         }
                     }
-                    sender.sendMessage(ChatColor.RED + "Player " + args[1] + " not found!");
+                    sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                            MessageUtils.prefix + " " + MessageUtils.playerNotFound.replace("{player}", args[1])));
                     return true;
                 }
             }
         }
-        sender.sendMessage("Invalid Sub Command");
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                MessageUtils.prefix + " " + MessageUtils.invalidSubCmd));
         return true;
     }
 }

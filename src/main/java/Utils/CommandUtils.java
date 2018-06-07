@@ -1,55 +1,63 @@
 package Utils;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class CommandUtils {
 
+    private static String transAltColors(String message) {
+        String string = ChatColor.translateAlternateColorCodes('&', message);
+        return string;
+    }
+
     public static void playerHelp(CommandSender sender) {
-        sender.sendMessage("/pi - Brings Up This Help Page");
-        sender.sendMessage("/pi del (type) - Deletes Specified Info Type");
-        sender.sendMessage("/pi me - Shows Your Personal Info");
-        sender.sendMessage("/pi set (type) (info) - Sets Specified Info Type");
-        sender.sendMessage("/pi show (ign) - Shows Another Players Info");
+        sender.sendMessage(transAltColors(MessageUtils.helpMenuTitle));
+        sender.sendMessage(ChatColor.GOLD + "/pi - " + transAltColors(MessageUtils.helpMenuPiCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi delete (type) - " + transAltColors(MessageUtils.helpMenuDeleteCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi me - " + transAltColors(MessageUtils.helpMenuMeCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi set (type) (info) - " + transAltColors(MessageUtils.helpMenuSetCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi show (ign) - " + transAltColors(MessageUtils.helpMenuShowCommand));
     }
 
     public static void staffHelp(CommandSender sender) {
-        sender.sendMessage("/pi - Brings Up This Help Page");
-        sender.sendMessage("/pi del (type) - Deletes Specified Info Type");
-        sender.sendMessage("/pi delothers (type) (ign) - Deletes Info For A Player");
-        sender.sendMessage("/pi me - Shows Your Personal Info");
-        sender.sendMessage("/pi set (type) (info) - Sets Specified Info Type");
-        sender.sendMessage("/pi show (playername) - Shows Another Players Info");
+        sender.sendMessage(transAltColors(MessageUtils.helpMenuTitle));
+        sender.sendMessage(ChatColor.GOLD + "/pi - " + transAltColors(MessageUtils.helpMenuPiCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi delete (type) - " + transAltColors(MessageUtils.helpMenuDeleteCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi delothers (type) (ign) - " + transAltColors(MessageUtils.helpMenuDeleteOthersCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi me - " + transAltColors(MessageUtils.helpMenuMeCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi set (type) (info) - " + transAltColors(MessageUtils.helpMenuSetCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi show (ign) - " + transAltColors(MessageUtils.helpMenuShowCommand));
     }
 
     public static void setHelp(Player player) {
-        player.sendMessage("To Set Different Personal Info");
+        player.sendMessage(transAltColors(MessageUtils.helpMenuTitle));
         if(ConfigUtils.isAllowName()) {
-            player.sendMessage("/pi set name (your name)");
+            player.sendMessage(ChatColor.GOLD + "/pi set name " + ChatColor.DARK_GREEN + "(your name)");
         }
 
         if(ConfigUtils.isAllowAge()) {
-            player.sendMessage("/pi set age (your age)");
+            player.sendMessage(ChatColor.GOLD + "/pi set age " + ChatColor.DARK_GREEN + "(your age)");
         }
 
         if(ConfigUtils.isAllowBirthday()) {
-            player.sendMessage("/pi set birthday (your birthday)");
+            player.sendMessage(ChatColor.GOLD + "/pi set birthday " + ChatColor.DARK_GREEN + "(your birthday)");
         }
 
         if(ConfigUtils.isAllowLocation()) {
-            player.sendMessage("/pi set location (your location)");
+            player.sendMessage(ChatColor.GOLD + "/pi set location " + ChatColor.DARK_GREEN + "(your location)");
         }
 
         if(ConfigUtils.isAllowGender()) {
-            player.sendMessage("/pi set gender (your gender)");
+            player.sendMessage(ChatColor.GOLD + "/pi set gender " + ChatColor.DARK_GREEN + "(your gender)");
         }
 
         if(ConfigUtils.isAllowPronouns()) {
-            player.sendMessage("/pi set pronouns (your pronouns)");
+            player.sendMessage(ChatColor.GOLD + "/pi set pronouns " + ChatColor.DARK_GREEN + "(your pronouns)");
         }
 
         if (ConfigUtils.isAllowDiscord()) {
-            player.sendMessage("/pi set discord (your discord)");
+            player.sendMessage(ChatColor.GOLD + "/pi set discord " + ChatColor.DARK_GREEN + "(your discord)");
         }
     }
 }
