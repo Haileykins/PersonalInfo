@@ -1,5 +1,6 @@
 package Utils;
 
+import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
@@ -29,72 +30,93 @@ public class PlayerDataHandler {
 
     public static void showInfoOthers(CommandSender sender, OfflinePlayer player) {
         if (!playerInfo.containsKey(player.getUniqueId())) {
-            sender.sendMessage("Player: " + player.getName() + " has not registered any data!");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                    MessageUtils.prefix + " " + MessageUtils.playerHasNotRegisted.replace("{player}", player.getName())));
             return;
         }
         PlayerData pd = info(player.getUniqueId());
-        sender.sendMessage("Personal Information for " + player.getName());
+        sender.sendMessage("");
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                MessageUtils.othersPersonalInfo.replace("{player}", player.getName())));
+        sender.sendMessage(ChatColor.GREEN + "-----------------------------------");
         if(ConfigUtils.isAllowName()) {
-            sender.sendMessage("Name: " + pd.name);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.nameMsg)
+                    + " " + pd.name);
         }
 
         if(ConfigUtils.isAllowAge()) {
-            sender.sendMessage("Age: " + pd.age);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.ageMsg)
+                    + " " + pd.age);
         }
 
         if(ConfigUtils.isAllowBirthday()) {
-            sender.sendMessage("Birthday: " + pd.birthday);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.birthdayMsg)
+                    + " " + pd.birthday);
         }
 
         if(ConfigUtils.isAllowLocation()) {
-            sender.sendMessage("Location: " + pd.location);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.locationMsg)
+                    + " " + pd.location);
         }
 
         if(ConfigUtils.isAllowGender()) {
-            sender.sendMessage("Gender: " + pd.gender);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.genderMsg)
+                    + " " + pd.gender);
         }
 
         if(ConfigUtils.isAllowPronouns()) {
-            sender.sendMessage("Pronouns: " + pd.pronouns);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.pronounsMsg)
+                    + " " + pd.pronouns);
         }
 
         if(ConfigUtils.isAllowDiscord()) {
-            sender.sendMessage("Discord: " + pd.discord);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.discordMsg)
+                    + " " + pd.discord);
         }
     }
 
     public static void showInfoSelf(Player player) {
         if (!playerInfo.containsKey(player.getUniqueId())) {
-            player.sendMessage("You have not registered any data!");
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix + " " + MessageUtils.youHaveNotRegistered));
             return;
         }
         PlayerData pd = info(player.getUniqueId());
+        player.sendMessage("");
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.yourPersonalInfo));
+        player.sendMessage(ChatColor.GREEN + "-----------------------------------");
         if(ConfigUtils.isAllowName()) {
-            player.sendMessage("Name: " + pd.name);
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.nameMsg)
+                    + " " + pd.name);
         }
 
         if(ConfigUtils.isAllowAge()) {
-            player.sendMessage("Age: " + pd.age);
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.ageMsg)
+                    + " " + pd.age);
         }
 
         if(ConfigUtils.isAllowBirthday()) {
-            player.sendMessage("Birthday: " + pd.birthday);
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.birthdayMsg)
+                    + " " + pd.birthday);
         }
 
         if(ConfigUtils.isAllowLocation()) {
-            player.sendMessage("Location: " + pd.location);
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.locationMsg)
+                    + " " + pd.location);
         }
 
         if(ConfigUtils.isAllowGender()) {
-            player.sendMessage("Gender: " + pd.gender);
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.genderMsg)
+                    + " " + pd.gender);
         }
 
         if(ConfigUtils.isAllowPronouns()) {
-            player.sendMessage("Pronouns: " + pd.pronouns);
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.pronounsMsg)
+                    + " " + pd.pronouns);
         }
 
         if(ConfigUtils.isAllowDiscord()) {
-            player.sendMessage("Discord: " + pd.discord);
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.discordMsg)
+                    + " " + pd.discord);
         }
     }
 
@@ -102,55 +124,76 @@ public class PlayerDataHandler {
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
-                player.sendMessage("Names Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
             pd.name = data;
         } else if (type.equalsIgnoreCase("age")) {
             if (!ConfigUtils.isAllowAge()) {
-                player.sendMessage("Ages Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
             try {
                 pd.age = Integer.parseInt(data);
             } catch(NumberFormatException e) {
-                player.sendMessage("Please Only Use Numbers!");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
         } else if (type.equalsIgnoreCase("birthday")) {
             if (!ConfigUtils.isAllowBirthday()) {
-                player.sendMessage("Birthdays Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
             pd.birthday = data;
         } else if (type.equalsIgnoreCase("location")) {
             if (!ConfigUtils.isAllowLocation()) {
-                player.sendMessage("Locations Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
             pd.location = data;
         } else if (type.equalsIgnoreCase("gender")) {
             if (!ConfigUtils.isAllowGender()) {
-                player.sendMessage("Genders Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
             pd.gender = data;
         } else if (type.equalsIgnoreCase("pronouns")) {
             if (!ConfigUtils.isAllowPronouns()) {
-                player.sendMessage("Pronouns Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
             pd.pronouns = data;
         } else if (type.equalsIgnoreCase("discord")) {
             if (!ConfigUtils.isAllowDiscord()) {
-                player.sendMessage("Discords Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
             pd.discord = data;
         } else {
-            player.sendMessage("Unknown Data Type!");
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                    + " " + ChatColor.translateAlternateColorCodes('&',
+                    MessageUtils.unknownOptionType));
+            return;
         }
-        player.sendMessage(type + " Set To: " + data);
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                MessageUtils.prefix + " " + MessageUtils.setInformationMsg.replace("{option}", type)
+                        .replace("{info}", data)));
         saveInfo();
     }
 
@@ -158,50 +201,66 @@ public class PlayerDataHandler {
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
-                player.sendMessage("Names Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.name = "Not Set";
+            pd.name = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("age")) {
             if (!ConfigUtils.isAllowAge()) {
-                player.sendMessage("Ages Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
             pd.age = 0;
         } else if (type.equalsIgnoreCase("birthday")) {
             if (!ConfigUtils.isAllowBirthday()) {
-                player.sendMessage("Birthdays Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.birthday = "Not Set";
+            pd.birthday = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("location")) {
             if (!ConfigUtils.isAllowLocation()) {
-                player.sendMessage("Locations Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.location = "Not Set";
+            pd.location = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("gender")) {
             if (!ConfigUtils.isAllowGender()) {
-                player.sendMessage("Genders Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.gender = "Not Set";
+            pd.gender = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("pronouns")) {
             if (!ConfigUtils.isAllowPronouns()) {
-                player.sendMessage("Pronouns Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.pronouns = "Not Set";
+            pd.pronouns = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("discord")) {
             if (!ConfigUtils.isAllowDiscord()) {
-                player.sendMessage("Discords Are Disabled On This Server");
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.discord = "Not Set";
+            pd.discord = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else {
-            player.sendMessage("Unknown Data Type!");
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                    + " " + ChatColor.translateAlternateColorCodes('&',
+                    MessageUtils.unknownOptionType));
         }
-        player.sendMessage("Removed your " + type + " from your Personal Information");
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.removedDataSelf));
         saveInfo();
     }
 
@@ -209,51 +268,70 @@ public class PlayerDataHandler {
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
-                sender.sendMessage("Names Are Disabled On This Server");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.name = "Not Set";
+            pd.name = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("age")) {
             if (!ConfigUtils.isAllowAge()) {
-                sender.sendMessage("Ages Are Disabled On This Server");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
             pd.age = 0;
         } else if (type.equalsIgnoreCase("birthday")) {
             if (!ConfigUtils.isAllowBirthday()) {
-                sender.sendMessage("Birthdays Are Disabled On This Server");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.birthday = "Not Set";
+            pd.birthday = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("location")) {
             if (!ConfigUtils.isAllowLocation()) {
-                sender.sendMessage("Locations Are Disabled On This Server");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.location = "Not Set";
+            pd.location = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("gender")) {
             if (!ConfigUtils.isAllowGender()) {
-                sender.sendMessage("Genders Are Disabled On This Server");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.gender = "Not Set";
+            pd.gender = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("pronouns")) {
             if (!ConfigUtils.isAllowPronouns()) {
-                sender.sendMessage("Pronouns Are Disabled On This Server");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.pronouns = "Not Set";
+            pd.pronouns = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("discord")) {
             if (!ConfigUtils.isAllowDiscord()) {
-                sender.sendMessage("Discords Are Disabled On This Server");
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                        + " " + ChatColor.translateAlternateColorCodes('&',
+                        MessageUtils.optionDisabled.replace("{option}", type)));
                 return;
             }
-            pd.discord = "Not Set";
+            pd.discord = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
         } else {
-            player.sendMessage("Unknown Data Type!");
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
+                    + " " + ChatColor.translateAlternateColorCodes('&',
+                    MessageUtils.unknownOptionType));
         }
-        sender.sendMessage("Removed " + type + " From Player " + player.getDisplayName());
-        player.sendMessage("[PersonalInfo] Your " + type + " Was Removed by Staff");
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+                MessageUtils.prefix + MessageUtils.removedDataOthers.replace("{option}", type)
+                        .replace("{player}", player.getDisplayName())));
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.prefix +
+                MessageUtils.dataRemovedByStaff));
         saveInfo();
     }
 
@@ -283,7 +361,7 @@ public class PlayerDataHandler {
         File file = new File(plugin.getDataFolder(), "playerInfo.yml");
         try {
             if (file.createNewFile()) {
-                plugin.getLogger().info("playerInfo.yml created.");
+                plugin.getLogger().info("playerInfo.yml created");
                 return;
             }
         } catch (Exception e) {
