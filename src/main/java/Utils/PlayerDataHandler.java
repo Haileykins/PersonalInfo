@@ -110,7 +110,7 @@ public class PlayerDataHandler {
         }
     }
 
-    public static void setInfoSelf (Player player, String type, String data){
+    public static void setInfo(Player player, String type, String data){
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
