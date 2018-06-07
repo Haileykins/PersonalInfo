@@ -31,7 +31,7 @@ public class MessageUtils {
     static String optionDisabled = "&2{option}s Are Disabled On This Server";
     static String unknownOptionType = "&2Unknown Info Type!";
     public static String specifyOptionToSet = "&2Please specify your {option}";
-    public static String ageNumberOnlyMsg = "&2Your age must be numerical!";
+    static String ageNumberOnlyMsg = "&2Your age must be numerical!";
     public static String mustBeAPlayer = "&2You must be a player to use this command!";
     public static String invalidNumberOfArguments = "&2Invalid Number of Arguments";
     public static String invalidSubCmd = "&2Invalid Sub Command!";
