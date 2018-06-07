@@ -28,95 +28,85 @@ public class PlayerDataHandler {
         return playerInfo.get(id);
     }
 
+    private static String transAltColors(String message) {
+        return ChatColor.translateAlternateColorCodes('&', message);
+    }
+
     public static void showInfoOthers(CommandSender sender, OfflinePlayer player) {
         if (!playerInfo.containsKey(player.getUniqueId())) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+            sender.sendMessage(transAltColors(
                     MessageUtils.prefix + " " + MessageUtils.playerHasNotRegisted.replace("{player}", player.getName())));
             return;
         }
         PlayerData pd = info(player.getUniqueId());
         sender.sendMessage("");
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
+        sender.sendMessage(transAltColors(
                 MessageUtils.othersPersonalInfo.replace("{player}", player.getName())));
         sender.sendMessage(ChatColor.GREEN + "-----------------------------------");
         if(ConfigUtils.isAllowName()) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.nameMsg)
-                    + " " + pd.name);
+            sender.sendMessage(transAltColors(MessageUtils.nameMsg) + " " + pd.name);
         }
 
         if(ConfigUtils.isAllowAge()) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.ageMsg)
-                    + " " + pd.age);
+            sender.sendMessage(transAltColors(MessageUtils.ageMsg) + " " + pd.age);
         }
 
         if(ConfigUtils.isAllowBirthday()) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.birthdayMsg)
-                    + " " + pd.birthday);
+            sender.sendMessage(transAltColors(MessageUtils.birthdayMsg) + " " + pd.birthday);
         }
 
         if(ConfigUtils.isAllowLocation()) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.locationMsg)
-                    + " " + pd.location);
+            sender.sendMessage(transAltColors(MessageUtils.locationMsg) + " " + pd.location);
         }
 
         if(ConfigUtils.isAllowGender()) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.genderMsg)
-                    + " " + pd.gender);
+            sender.sendMessage(transAltColors(MessageUtils.genderMsg) + " " + pd.gender);
         }
 
         if(ConfigUtils.isAllowPronouns()) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.pronounsMsg)
-                    + " " + pd.pronouns);
+            sender.sendMessage(transAltColors(MessageUtils.pronounsMsg) + " " + pd.pronouns);
         }
 
         if(ConfigUtils.isAllowDiscord()) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.discordMsg)
-                    + " " + pd.discord);
+            sender.sendMessage(transAltColors(MessageUtils.discordMsg) + " " + pd.discord);
         }
     }
 
     public static void showInfoSelf(Player player) {
         if (!playerInfo.containsKey(player.getUniqueId())) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix + " " + MessageUtils.youHaveNotRegistered));
+            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.youHaveNotRegistered));
             return;
         }
         PlayerData pd = info(player.getUniqueId());
         player.sendMessage("");
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.yourPersonalInfo));
+        player.sendMessage(transAltColors( MessageUtils.yourPersonalInfo));
         player.sendMessage(ChatColor.GREEN + "-----------------------------------");
         if(ConfigUtils.isAllowName()) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.nameMsg)
-                    + " " + pd.name);
+            player.sendMessage(transAltColors(MessageUtils.nameMsg) + " " + pd.name);
         }
 
         if(ConfigUtils.isAllowAge()) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.ageMsg)
-                    + " " + pd.age);
+            player.sendMessage(transAltColors(MessageUtils.ageMsg) + " " + pd.age);
         }
 
         if(ConfigUtils.isAllowBirthday()) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.birthdayMsg)
-                    + " " + pd.birthday);
+            player.sendMessage(transAltColors(MessageUtils.birthdayMsg) + " " + pd.birthday);
         }
 
         if(ConfigUtils.isAllowLocation()) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.locationMsg)
-                    + " " + pd.location);
+            player.sendMessage(transAltColors(MessageUtils.locationMsg) + " " + pd.location);
         }
 
         if(ConfigUtils.isAllowGender()) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.genderMsg)
-                    + " " + pd.gender);
+            player.sendMessage(transAltColors(MessageUtils.genderMsg) + " " + pd.gender);
         }
 
         if(ConfigUtils.isAllowPronouns()) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.pronounsMsg)
-                    + " " + pd.pronouns);
+            player.sendMessage(transAltColors(MessageUtils.pronounsMsg) + " " + pd.pronouns);
         }
 
         if(ConfigUtils.isAllowDiscord()) {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.discordMsg)
-                    + " " + pd.discord);
+            player.sendMessage(transAltColors(MessageUtils.discordMsg) + " " + pd.discord);
         }
     }
 
@@ -124,76 +114,65 @@ public class PlayerDataHandler {
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
             pd.name = data;
         } else if (type.equalsIgnoreCase("age")) {
             if (!ConfigUtils.isAllowAge()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
             try {
                 pd.age = Integer.parseInt(data);
             } catch(NumberFormatException e) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
         } else if (type.equalsIgnoreCase("birthday")) {
             if (!ConfigUtils.isAllowBirthday()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
             pd.birthday = data;
         } else if (type.equalsIgnoreCase("location")) {
             if (!ConfigUtils.isAllowLocation()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
             pd.location = data;
         } else if (type.equalsIgnoreCase("gender")) {
             if (!ConfigUtils.isAllowGender()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
             pd.gender = data;
         } else if (type.equalsIgnoreCase("pronouns")) {
             if (!ConfigUtils.isAllowPronouns()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
             pd.pronouns = data;
         } else if (type.equalsIgnoreCase("discord")) {
             if (!ConfigUtils.isAllowDiscord()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
             pd.discord = data;
         } else {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                    + " " + ChatColor.translateAlternateColorCodes('&',
-                    MessageUtils.unknownOptionType));
+            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
             return;
         }
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                MessageUtils.prefix + " " + MessageUtils.setInformationMsg.replace("{option}", type)
-                        .replace("{info}", data)));
+        player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.setInformationMsg
+                .replace("{option}", type).replace("{info}", data)));
         saveInfo();
     }
 
@@ -201,66 +180,57 @@ public class PlayerDataHandler {
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.name = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.name = transAltColors( MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("age")) {
             if (!ConfigUtils.isAllowAge()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
             pd.age = 0;
         } else if (type.equalsIgnoreCase("birthday")) {
             if (!ConfigUtils.isAllowBirthday()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.birthday = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.birthday = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("location")) {
             if (!ConfigUtils.isAllowLocation()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.location = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.location = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("gender")) {
             if (!ConfigUtils.isAllowGender()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.gender = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.gender = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("pronouns")) {
             if (!ConfigUtils.isAllowPronouns()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.pronouns = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.pronouns = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("discord")) {
             if (!ConfigUtils.isAllowDiscord()) {
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.discord = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.discord = transAltColors(MessageUtils.dataNotSet);
         } else {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                    + " " + ChatColor.translateAlternateColorCodes('&',
-                    MessageUtils.unknownOptionType));
+            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.removedDataSelf));
+        player.sendMessage(transAltColors(MessageUtils.removedDataSelf));
         saveInfo();
     }
 
@@ -268,70 +238,62 @@ public class PlayerDataHandler {
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.name = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.name = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("age")) {
             if (!ConfigUtils.isAllowAge()) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
             pd.age = 0;
         } else if (type.equalsIgnoreCase("birthday")) {
             if (!ConfigUtils.isAllowBirthday()) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.birthday = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.birthday = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("location")) {
             if (!ConfigUtils.isAllowLocation()) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.location = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.location = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("gender")) {
             if (!ConfigUtils.isAllowGender()) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.gender = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.gender = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("pronouns")) {
             if (!ConfigUtils.isAllowPronouns()) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.pronouns = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.pronouns = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("discord")) {
             if (!ConfigUtils.isAllowDiscord()) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                        + " " + ChatColor.translateAlternateColorCodes('&',
-                        MessageUtils.optionDisabled.replace("{option}", type)));
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
                 return;
             }
-            pd.discord = ChatColor.translateAlternateColorCodes('&', MessageUtils.dataNotSet);
+            pd.discord = transAltColors(MessageUtils.dataNotSet);
         } else {
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&',MessageUtils.prefix)
-                    + " " + ChatColor.translateAlternateColorCodes('&',
-                    MessageUtils.unknownOptionType));
+            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                MessageUtils.prefix + MessageUtils.removedDataOthers.replace("{option}", type)
-                        .replace("{player}", player.getDisplayName())));
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&', MessageUtils.prefix +
-                MessageUtils.dataRemovedByStaff));
+        // Inform sender data was removed
+        sender.sendMessage(transAltColors(MessageUtils.prefix + MessageUtils.removedDataOthers
+                .replace("{option}", type).replace("{player}", player.getDisplayName())));
+
+        // Inform target player data was removed
+        player.sendMessage(transAltColors( MessageUtils.prefix + MessageUtils.dataRemovedByStaff));
         saveInfo();
     }
 
