@@ -23,7 +23,7 @@ public class CommandUtils {
         sender.sendMessage(transAltColors(MessageUtils.helpMenuTitle));
         sender.sendMessage(ChatColor.GOLD + "/pi - " + transAltColors(MessageUtils.helpMenuPiCommand));
         sender.sendMessage(ChatColor.GOLD + "/pi delete (type) - " + transAltColors(MessageUtils.helpMenuDeleteCommand));
-        sender.sendMessage(ChatColor.GOLD + "/pi delothers (type) (ign) - " + transAltColors(MessageUtils.helpMenuDeleteOthersCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi delothers (ign) (type) - " + transAltColors(MessageUtils.helpMenuDeleteOthersCommand));
         sender.sendMessage(ChatColor.GOLD + "/pi me - " + transAltColors(MessageUtils.helpMenuMeCommand));
         sender.sendMessage(ChatColor.GOLD + "/pi set (type) (info) - " + transAltColors(MessageUtils.helpMenuSetCommand));
         sender.sendMessage(ChatColor.GOLD + "/pi show (ign) - " + transAltColors(MessageUtils.helpMenuShowCommand));
