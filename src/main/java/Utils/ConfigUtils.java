@@ -36,31 +36,31 @@ public class ConfigUtils {
         plugin.saveConfig();
     }
 
-    public static boolean isAllowName() {
+    static boolean isAllowName() {
         return allowName;
     }
 
-    public static boolean isAllowAge() {
+    static boolean isAllowAge() {
         return allowAge;
     }
 
-    public static boolean isAllowBirthday() {
+    static boolean isAllowBirthday() {
         return allowBirthday;
     }
 
-    public static boolean isAllowLocation() {
+    static boolean isAllowLocation() {
         return allowLocation;
     }
 
-    public static boolean isAllowGender() {
+    static boolean isAllowGender() {
         return allowGender;
     }
 
-    public static boolean isAllowPronouns() {
+    static boolean isAllowPronouns() {
         return allowPronouns;
     }
 
-    public static boolean isAllowDiscord() {
+    static boolean isAllowDiscord() {
         return allowDiscord;
     }
 }
