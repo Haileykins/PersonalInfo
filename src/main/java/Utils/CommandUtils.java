@@ -7,8 +7,7 @@ import org.bukkit.entity.Player;
 public class CommandUtils {
 
     private static String transAltColors(String message) {
-        String string = ChatColor.translateAlternateColorCodes('&', message);
-        return string;
+        return ChatColor.translateAlternateColorCodes('&', message);
     }
 
     public static void playerHelp(CommandSender sender) {
