@@ -25,12 +25,13 @@ public class MessageUtils {
     static String removedDataSelf = "&2Removed Your {option} From Your Personal Information";
     static String removedDataOthers = "&2Removed {option} From Player {player}";
     static String dataRemovedByStaff = "&2Your {option} Was Removed By Staff!";
-    static String dataNotSet = "&2Not Set";
+    static String dataNotSet = "Not Set";
     static String playerHasNotRegisted = "&2{player} has not registered any data!";
     static String youHaveNotRegistered = "&2You have not registered any data!";
     static String optionDisabled = "&2{option}s Are Disabled On This Server";
     static String unknownOptionType = "&2Unknown Info Type!";
     public static String specifyOptionToSet = "&2Please specify your {option}";
+    public static String ageNumberOnlyMsg = "&2Your age must be numerical!";
     public static String mustBeAPlayer = "&2You must be a player to use this command!";
     public static String invalidNumberOfArguments = "&2Invalid Number of Arguments";
     public static String invalidSubCmd = "&2Invalid Sub Command!";
@@ -41,7 +42,7 @@ public class MessageUtils {
     static String helpMenuDeleteOthersCommand = "&2Deletes Info For A Player";
     static String helpMenuMeCommand = "&2Shows Your Personal Info";
     static String helpMenuSetCommand = "&2Sets Specified Info Type";
-    static String helpMenuShowCommand = "&2Shows Another Players Info";
+    static String helpMenuShowCommand = "&2Shows Another Player's Info";
 
     private static void saveLang() {
         File file = new File(plugin.getDataFolder(), "language.yml");
