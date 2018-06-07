@@ -42,6 +42,10 @@ public class MessageUtils {
     static String helpMenuMeCommand = "&2Shows Your Personal Info";
     static String helpMenuSetCommand = "&2Sets Specified Info Type";
     static String helpMenuShowCommand = "&2Shows Another Players Info";
+    public static String configReloaded = "&2Config File Reloaded!";
+    public static String langFileReloaded = "&2Language File Reloaded";
+    public static String reloadHelpMsg = "&2/pi reload lang or /pi reload config to reload files";
+
 
     private static void saveLang() {
         File file = new File(plugin.getDataFolder(), "language.yml");
@@ -76,6 +80,9 @@ public class MessageUtils {
         config.set("helpMenuMeCommand", helpMenuMeCommand);
         config.set("helpMenuSetCommand", helpMenuSetCommand);
         config.set("helpMenuShowCommand", helpMenuShowCommand);
+        config.set("configReloaded", configReloaded);
+        config.set("langFileReloaded", langFileReloaded);
+        config.set("reloadHelpMsg", reloadHelpMsg);
         try {
             config.save(file);
         } catch (IOException e) {
@@ -129,5 +136,12 @@ public class MessageUtils {
         config.getString("helpMenuMeCommand");
         config.getString("helpMenuSetCommand");
         config.getString("helpMenuShowCommand");
+        config.getString("configReloaded");
+        config.getString("langFileReloaded");
+        config.getString("reloadHelpMsg");
+    }
+
+    public static void reloadLang() {
+        // TODO: GET THE LANGUAGE FILE TO BE RELOADABLE
     }
 }
