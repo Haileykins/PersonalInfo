@@ -43,6 +43,9 @@ public class MessageUtils {
     static String helpMenuMeCommand = "&2Shows Your Personal Info";
     static String helpMenuSetCommand = "&2Sets Specified Info Type";
     static String helpMenuShowCommand = "&2Shows Another Player's Info";
+    public static String configReloaded = "&2Config File Reloaded!";
+    public static String langFileReloaded = "&2Language File Reloaded";
+    public static String reloadHelpMsg = "&2/pi reload lang or /pi reload config to reload files";
 
     private static void saveLang() {
         File file = new File(plugin.getDataFolder(), "language.yml");
@@ -77,6 +80,9 @@ public class MessageUtils {
         config.set("helpMenuMeCommand", helpMenuMeCommand);
         config.set("helpMenuSetCommand", helpMenuSetCommand);
         config.set("helpMenuShowCommand", helpMenuShowCommand);
+        config.set("configReloaded", configReloaded);
+        config.set("langFileReloaded", langFileReloaded);
+        config.set("reloadHelpMsg", reloadHelpMsg);
         try {
             config.save(file);
         } catch (IOException e) {
@@ -99,36 +105,114 @@ public class MessageUtils {
         }
 
         // Otherwise, load the players perms from the file
-        config.getString("prefix");
-        config.getString("nameMsg");
-        config.getString("ageMsg");
-        config.getString("birthdayMsg");
-        config.getString("locationMsg");
-        config.getString("genderMsg");
-        config.getString("pronounsMsg");
-        config.getString("discordMsg");
-        config.getString("yourPersonalInfo");
-        config.getString("othersPersonalInfo");
-        config.getString("setInformationMsg");
-        config.getString("removedDataSelf");
-        config.getString("removedDataOthers");
-        config.getString("dataRemovedByStaff");
-        config.getString("dataNotSet");
-        config.getString("playerHasNotRegisted");
-        config.getString("youHaveNotRegistered");
-        config.getString("optionDisabled");
-        config.getString("unknownOptionType");
-        config.getString("specifyOptionToSet");
-        config.getString("mustBeAPlayer");
-        config.getString("invalidNumberOfArguments");
-        config.getString("invalidSubCmd");
-        config.getString("playerNotFound");
-        config.getString("helpMenuTitle");
-        config.getString("helpMenuPiCommand");
-        config.getString("helpMenuDeleteCommand");
-        config.getString("helpMenuDeleteOthersCommand");
-        config.getString("helpMenuMeCommand");
-        config.getString("helpMenuSetCommand");
-        config.getString("helpMenuShowCommand");
+        prefix = config.getString("prefix");
+        nameMsg = config.getString("nameMsg");
+        ageMsg = config.getString("ageMsg");
+        birthdayMsg = config.getString("birthdayMsg");
+        locationMsg = config.getString("locationMsg");
+        genderMsg = config.getString("genderMsg");
+        pronounsMsg = config.getString("pronounsMsg");
+        discordMsg = config.getString("discordMsg");
+        yourPersonalInfo = config.getString("yourPersonalInfo");
+        othersPersonalInfo = config.getString("othersPersonalInfo");
+        setInformationMsg = config.getString("setInformationMsg");
+        removedDataSelf = config.getString("removedDataSelf");
+        removedDataOthers = config.getString("removedDataOthers");
+        dataRemovedByStaff = config.getString("dataRemovedByStaff");
+        dataNotSet = config.getString("dataNotSet");
+        dataNotSet = config.getString("dataNotSet");
+        youHaveNotRegistered = config.getString("youHaveNotRegistered");
+        optionDisabled = config.getString("optionDisabled");
+        unknownOptionType = config.getString("unknownOptionType");
+        specifyOptionToSet = config.getString("specifyOptionToSet");
+        mustBeAPlayer = config.getString("mustBeAPlayer");
+        invalidNumberOfArguments = config.getString("invalidNumberOfArguments");
+        invalidSubCmd = config.getString("invalidSubCmd");
+        playerNotFound = config.getString("playerNotFound");
+        helpMenuTitle = config.getString("helpMenuTitle");
+        helpMenuPiCommand = config.getString("helpMenuPiCommand");
+        helpMenuDeleteCommand = config.getString("helpMenuDeleteCommand");
+        helpMenuDeleteOthersCommand = config.getString("helpMenuDeleteOthersCommand");
+        helpMenuMeCommand = config.getString("helpMenuMeCommand");
+        helpMenuSetCommand = config.getString("helpMenuSetCommand");
+        helpMenuShowCommand = config.getString("helpMenuShowCommand");
+        configReloaded = config.getString("configReloaded");
+        langFileReloaded = config.getString("langFileReloaded");
+    }
+
+    public static void reloadLang() {
+        File file = new File(plugin.getDataFolder(), "language.yml");
+        FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+
+        // Get new data
+        prefix = config.getString("prefix");
+        nameMsg = config.getString("nameMsg");
+        ageMsg = config.getString("ageMsg");
+        birthdayMsg = config.getString("birthdayMsg");
+        locationMsg = config.getString("locationMsg");
+        genderMsg = config.getString("genderMsg");
+        pronounsMsg = config.getString("pronounsMsg");
+        discordMsg = config.getString("discordMsg");
+        yourPersonalInfo = config.getString("yourPersonalInfo");
+        othersPersonalInfo = config.getString("othersPersonalInfo");
+        setInformationMsg = config.getString("setInformationMsg");
+        removedDataSelf = config.getString("removedDataSelf");
+        removedDataOthers = config.getString("removedDataOthers");
+        dataRemovedByStaff = config.getString("dataRemovedByStaff");
+        dataNotSet = config.getString("dataNotSet");
+        dataNotSet = config.getString("dataNotSet");
+        youHaveNotRegistered = config.getString("youHaveNotRegistered");
+        optionDisabled = config.getString("optionDisabled");
+        unknownOptionType = config.getString("unknownOptionType");
+        specifyOptionToSet = config.getString("specifyOptionToSet");
+        mustBeAPlayer = config.getString("mustBeAPlayer");
+        invalidNumberOfArguments = config.getString("invalidNumberOfArguments");
+        invalidSubCmd = config.getString("invalidSubCmd");
+        playerNotFound = config.getString("playerNotFound");
+        helpMenuTitle = config.getString("helpMenuTitle");
+        helpMenuPiCommand = config.getString("helpMenuPiCommand");
+        helpMenuDeleteCommand = config.getString("helpMenuDeleteCommand");
+        helpMenuDeleteOthersCommand = config.getString("helpMenuDeleteOthersCommand");
+        helpMenuMeCommand = config.getString("helpMenuMeCommand");
+        helpMenuSetCommand = config.getString("helpMenuSetCommand");
+        helpMenuShowCommand = config.getString("helpMenuShowCommand");
+        configReloaded = config.getString("configReloaded");
+        langFileReloaded = config.getString("langFileReloaded");
+
+        // Set new data into language.yml
+        config.set("prefix", prefix);
+        config.set("nameMsg", nameMsg);
+        config.set("ageMsg", ageMsg);
+        config.set("birthdayMsg", birthdayMsg);
+        config.set("locationMsg", locationMsg);
+        config.set("genderMsg", genderMsg);
+        config.set("pronounsMsg", pronounsMsg);
+        config.set("discordMsg", discordMsg);
+        config.set("yourPersonalInfo", yourPersonalInfo);
+        config.set("othersPersonalInfo", othersPersonalInfo);
+        config.set("setInformationMsg", setInformationMsg);
+        config.set("removedDataSelf", removedDataSelf);
+        config.set("removedDataOthers", removedDataOthers);
+        config.set("dataRemovedByStaff", dataRemovedByStaff);
+        config.set("dataNotSet", dataNotSet);
+        config.set("playerHasNotRegisted", playerHasNotRegisted);
+        config.set("youHaveNotRegistered", youHaveNotRegistered);
+        config.set("optionDisabled", optionDisabled);
+        config.set("unknownOptionType", unknownOptionType);
+        config.set("specifyOptionToSet", specifyOptionToSet);
+        config.set("mustBeAPlayer", mustBeAPlayer);
+        config.set("invalidNumberOfArguments", invalidNumberOfArguments);
+        config.set("invalidSubCmd", invalidSubCmd);
+        config.set("helpMenuTitle", helpMenuTitle);
+        config.set("helpMenuPiCommand", helpMenuPiCommand);
+        config.set("helpMenuDeleteCommand", helpMenuDeleteCommand);
+        config.set("helpMenuDeleteOthersCommand", helpMenuDeleteOthersCommand);
+        config.set("helpMenuMeCommand", helpMenuMeCommand);
+        config.set("helpMenuSetCommand", helpMenuSetCommand);
+        config.set("helpMenuShowCommand", helpMenuShowCommand);
+        config.set("configReloaded", configReloaded);
+        config.set("langFileReloaded", langFileReloaded);
+        config.set("reloadHelpMsg", reloadHelpMsg);
+        saveLang();
     }
 }

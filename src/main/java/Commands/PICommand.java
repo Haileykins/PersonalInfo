@@ -1,6 +1,7 @@
 package Commands;
 
 import Utils.CommandUtils;
+import Utils.ConfigUtils;
 import Utils.MessageUtils;
 import Utils.PlayerDataHandler;
 import org.bukkit.Bukkit;
@@ -107,6 +108,22 @@ public class PICommand implements CommandExecutor {
                     }
                     sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.playerNotFound
                             .replace("{player}", args[1])));
+                    return true;
+                }
+            }
+            if (args[0].equalsIgnoreCase("reload")) {
+                if (args.length != 2) {
+                    sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.reloadHelpMsg));
+                    return true;
+                } else if (args[1].equalsIgnoreCase("lang")) {
+                    MessageUtils.reloadLang();
+                    sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.langFileReloaded));
+                    Bukkit.getLogger().info("Language File Reloaded!");
+                    return true;
+                } else if (args[1].equalsIgnoreCase("config")) {
+                    ConfigUtils.reloadConfig();
+                    sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.configReloaded));
+                    Bukkit.getLogger().info("Config File Reloaded!");
                     return true;
                 }
             }

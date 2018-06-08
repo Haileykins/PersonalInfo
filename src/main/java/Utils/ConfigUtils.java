@@ -1,5 +1,6 @@
 package Utils;
 
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
@@ -34,6 +35,12 @@ public class ConfigUtils {
         config.set("Allow-Pronouns", allowPronouns);
         config.set("Allow-Discord", allowDiscord);
         plugin.saveConfig();
+    }
+
+    public static void reloadConfig() {
+        plugin.reloadConfig();
+        setConfig();
+        plugin.getConfig();
     }
 
     static boolean isAllowName() {
