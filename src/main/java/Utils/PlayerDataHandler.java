@@ -43,11 +43,11 @@ public class PlayerDataHandler {
         sender.sendMessage(transAltColors(
                 MessageUtils.othersPersonalInfo.replace("{player}", player.getName())));
         sender.sendMessage(ChatColor.GREEN + "-----------------------------------");
-        if(ConfigUtils.isAllowName()) {
+        if (ConfigUtils.isAllowName()) {
             sender.sendMessage(transAltColors(MessageUtils.nameMsg) + " " + pd.name);
         }
 
-        if(ConfigUtils.isAllowAge()) {
+        if (ConfigUtils.isAllowAge()) {
             if (pd.age == 0) {
                 sender.sendMessage(transAltColors(MessageUtils.ageMsg + " " + MessageUtils.dataNotSet));
             } else {
@@ -55,26 +55,26 @@ public class PlayerDataHandler {
             }
         }
 
-        if(ConfigUtils.isAllowBirthday()) {
+        if (ConfigUtils.isAllowBirthday()) {
             sender.sendMessage(transAltColors(MessageUtils.birthdayMsg) + " " + pd.birthday);
         }
 
-        if(ConfigUtils.isAllowLocation()) {
+        if (ConfigUtils.isAllowLocation()) {
             sender.sendMessage(transAltColors(MessageUtils.locationMsg) + " " + pd.location);
         }
 
-        if(ConfigUtils.isAllowGender()) {
+        if (ConfigUtils.isAllowGender()) {
             sender.sendMessage(transAltColors(MessageUtils.genderMsg) + " " + pd.gender);
         }
 
-        if(ConfigUtils.isAllowPronouns()) {
+        if (ConfigUtils.isAllowPronouns()) {
             sender.sendMessage(transAltColors(MessageUtils.pronounsMsg) + " " + pd.pronouns);
         }
 
-        if(ConfigUtils.isAllowDiscord()) {
+        if (ConfigUtils.isAllowDiscord()) {
             sender.sendMessage(transAltColors(MessageUtils.discordMsg) + " " + pd.discord);
         }
-        if(ConfigUtils.isAllowYoutube()) {
+        if (ConfigUtils.isAllowYoutube()) {
             sender.sendMessage(transAltColors(MessageUtils.youtubeMsg) + " " + pd.youtube);
         }
     }
@@ -86,13 +86,13 @@ public class PlayerDataHandler {
         }
         PlayerData pd = info(player.getUniqueId());
         player.sendMessage("");
-        player.sendMessage(transAltColors( MessageUtils.yourPersonalInfo));
+        player.sendMessage(transAltColors(MessageUtils.yourPersonalInfo));
         player.sendMessage(ChatColor.GREEN + "-----------------------------------");
-        if(ConfigUtils.isAllowName()) {
+        if (ConfigUtils.isAllowName()) {
             player.sendMessage(transAltColors(MessageUtils.nameMsg) + " " + pd.name);
         }
 
-        if(ConfigUtils.isAllowAge()) {
+        if (ConfigUtils.isAllowAge()) {
             if (pd.age == 0) {
                 player.sendMessage(transAltColors(MessageUtils.ageMsg + " " + MessageUtils.dataNotSet));
             } else {
@@ -100,31 +100,31 @@ public class PlayerDataHandler {
             }
         }
 
-        if(ConfigUtils.isAllowBirthday()) {
+        if (ConfigUtils.isAllowBirthday()) {
             player.sendMessage(transAltColors(MessageUtils.birthdayMsg) + " " + pd.birthday);
         }
 
-        if(ConfigUtils.isAllowLocation()) {
+        if (ConfigUtils.isAllowLocation()) {
             player.sendMessage(transAltColors(MessageUtils.locationMsg) + " " + pd.location);
         }
 
-        if(ConfigUtils.isAllowGender()) {
+        if (ConfigUtils.isAllowGender()) {
             player.sendMessage(transAltColors(MessageUtils.genderMsg) + " " + pd.gender);
         }
 
-        if(ConfigUtils.isAllowPronouns()) {
+        if (ConfigUtils.isAllowPronouns()) {
             player.sendMessage(transAltColors(MessageUtils.pronounsMsg) + " " + pd.pronouns);
         }
 
-        if(ConfigUtils.isAllowDiscord()) {
+        if (ConfigUtils.isAllowDiscord()) {
             player.sendMessage(transAltColors(MessageUtils.discordMsg) + " " + pd.discord);
         }
-        if(ConfigUtils.isAllowYoutube()) {
+        if (ConfigUtils.isAllowYoutube()) {
             player.sendMessage(transAltColors(MessageUtils.youtubeMsg) + " " + pd.youtube);
         }
     }
 
-    public static void setInfo(Player player, String type, String data){
+    public static void setInfo(Player player, String type, String data) {
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
@@ -141,7 +141,7 @@ public class PlayerDataHandler {
             }
             try {
                 pd.age = Integer.parseInt(data);
-            } catch(NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.ageNumberOnlyMsg));
                 return;
             }
@@ -195,7 +195,7 @@ public class PlayerDataHandler {
         saveInfo();
     }
 
-    public static void deleteInfoSelf (Player player, String type){
+    public static void deleteInfoSelf(Player player, String type) {
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
@@ -203,7 +203,7 @@ public class PlayerDataHandler {
                         .replace("{option}", type)));
                 return;
             }
-            pd.name = transAltColors( MessageUtils.dataNotSet);
+            pd.name = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("age")) {
             if (!ConfigUtils.isAllowAge()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
@@ -292,7 +292,7 @@ public class PlayerDataHandler {
         }
     }
 
-    public static void deleteInfoOthers (CommandSender sender, Player player, String type){
+    public static void deleteInfoOthers(CommandSender sender, Player player, String type) {
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
@@ -358,7 +358,7 @@ public class PlayerDataHandler {
                 .replace("{option}", type).replace("{player}", player.getDisplayName())));
 
         // Inform target player data was removed
-        player.sendMessage(transAltColors( MessageUtils.prefix + " " + MessageUtils.dataRemovedByStaff)
+        player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.dataRemovedByStaff)
                 .replace("{option}", type));
         saveInfo();
     }

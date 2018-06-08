@@ -31,14 +31,14 @@ public class PICommand implements CommandExecutor {
 
         // Player commands
         if (args[0].equalsIgnoreCase("clear")) {
-            if ((sender instanceof Player)) {
+            if (sender instanceof Player) {
                 Player player = (Player) sender;
                 PlayerDataHandler.clearInfoSelf(player);
                 return true;
             }
         }
         if (args[0].equalsIgnoreCase("set")) {
-            if ((sender instanceof Player)) {
+            if (sender instanceof Player) {
                 Player player = (Player) sender;
                 if (args.length < 2) {
                     CommandUtils.setHelp(player);
@@ -86,7 +86,7 @@ public class PICommand implements CommandExecutor {
         }
 
         if (args[0].equalsIgnoreCase("delete")) {
-            if ((sender instanceof Player)) {
+            if (sender instanceof Player) {
                 Player player = (Player) sender;
                 if (args.length < 2) {
                     sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidNumberOfArguments));

@@ -15,8 +15,6 @@ class PlayerData {
     String discord;
     String youtube;
 
-
-
     PlayerData(UUID id) {
         playerId = id;
         name = "Not Set";

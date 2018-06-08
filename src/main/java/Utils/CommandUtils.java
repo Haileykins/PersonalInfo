@@ -33,27 +33,27 @@ public class CommandUtils {
 
     public static void setHelp(Player player) {
         player.sendMessage(transAltColors(MessageUtils.helpMenuTitle));
-        if(ConfigUtils.isAllowName()) {
+        if (ConfigUtils.isAllowName()) {
             player.sendMessage(ChatColor.GOLD + "/pi set name " + ChatColor.DARK_GREEN + "(your name)");
         }
 
-        if(ConfigUtils.isAllowAge()) {
+        if (ConfigUtils.isAllowAge()) {
             player.sendMessage(ChatColor.GOLD + "/pi set age " + ChatColor.DARK_GREEN + "(your age)");
         }
 
-        if(ConfigUtils.isAllowBirthday()) {
+        if (ConfigUtils.isAllowBirthday()) {
             player.sendMessage(ChatColor.GOLD + "/pi set birthday " + ChatColor.DARK_GREEN + "(your birthday)");
         }
 
-        if(ConfigUtils.isAllowLocation()) {
+        if (ConfigUtils.isAllowLocation()) {
             player.sendMessage(ChatColor.GOLD + "/pi set location " + ChatColor.DARK_GREEN + "(your location)");
         }
 
-        if(ConfigUtils.isAllowGender()) {
+        if (ConfigUtils.isAllowGender()) {
             player.sendMessage(ChatColor.GOLD + "/pi set gender " + ChatColor.DARK_GREEN + "(your gender)");
         }
 
-        if(ConfigUtils.isAllowPronouns()) {
+        if (ConfigUtils.isAllowPronouns()) {
             player.sendMessage(ChatColor.GOLD + "/pi set pronouns " + ChatColor.DARK_GREEN + "(your pronouns)");
         }
 
