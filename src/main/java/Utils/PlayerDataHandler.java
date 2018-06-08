@@ -332,6 +332,8 @@ public class PlayerDataHandler {
         saveInfo();
     }
 
+
+    // DATA HANDLING
     private static void saveInfo() {
         File file = new File(plugin.getDataFolder(), "playerInfo.yml");
         try {
