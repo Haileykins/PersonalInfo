@@ -13,6 +13,7 @@ class PlayerData {
     String gender;
     String pronouns;
     String discord;
+    String youtube;
 
 
 

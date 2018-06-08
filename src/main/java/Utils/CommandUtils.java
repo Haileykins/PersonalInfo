@@ -58,5 +58,9 @@ public class CommandUtils {
         if (ConfigUtils.isAllowDiscord()) {
             player.sendMessage(ChatColor.GOLD + "/pi set discord " + ChatColor.DARK_GREEN + "(your discord)");
         }
+
+        if (ConfigUtils.isAllowYoutube()) {
+            player.sendMessage(ChatColor.GOLD + "/pi set youtube " + ChatColor.DARK_GREEN + "(your youtube)");
+        }
     }
 }

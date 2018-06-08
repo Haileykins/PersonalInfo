@@ -19,6 +19,7 @@ public class MessageUtils {
     static String genderMsg = "&2Gender:&f";
     static String pronounsMsg = "&2Pronouns:&f";
     static String discordMsg = "&2Discord:&f";
+    static String youtubeMsg = "&2Youtube:&f";
     static String yourPersonalInfo = "&2Your Personal Information";
     static String othersPersonalInfo = "&2Personal Information for {player}";
     static String setInformationMsg = "&2{option} Set To: {info}";
@@ -58,6 +59,7 @@ public class MessageUtils {
         config.set("genderMsg", genderMsg);
         config.set("pronounsMsg", pronounsMsg);
         config.set("discordMsg", discordMsg);
+        config.set("youtubeMsg", youtubeMsg);
         config.set("yourPersonalInfo", yourPersonalInfo);
         config.set("othersPersonalInfo", othersPersonalInfo);
         config.set("setInformationMsg", setInformationMsg);
@@ -113,6 +115,7 @@ public class MessageUtils {
         genderMsg = config.getString("genderMsg");
         pronounsMsg = config.getString("pronounsMsg");
         discordMsg = config.getString("discordMsg");
+        youtubeMsg = config.getString("youtubeMsg");
         yourPersonalInfo = config.getString("yourPersonalInfo");
         othersPersonalInfo = config.getString("othersPersonalInfo");
         setInformationMsg = config.getString("setInformationMsg");
@@ -153,6 +156,7 @@ public class MessageUtils {
         genderMsg = config.getString("genderMsg");
         pronounsMsg = config.getString("pronounsMsg");
         discordMsg = config.getString("discordMsg");
+        youtubeMsg = config.getString("youtubeMsg");
         yourPersonalInfo = config.getString("yourPersonalInfo");
         othersPersonalInfo = config.getString("othersPersonalInfo");
         setInformationMsg = config.getString("setInformationMsg");
@@ -188,6 +192,7 @@ public class MessageUtils {
         config.set("genderMsg", genderMsg);
         config.set("pronounsMsg", pronounsMsg);
         config.set("discordMsg", discordMsg);
+        config.set("youtubeMsg", youtubeMsg);
         config.set("yourPersonalInfo", yourPersonalInfo);
         config.set("othersPersonalInfo", othersPersonalInfo);
         config.set("setInformationMsg", setInformationMsg);

@@ -16,6 +16,7 @@ public class ConfigUtils {
     private static boolean allowGender = true;
     private static boolean allowPronouns = true;
     private static boolean allowDiscord = true;
+    private static boolean allowYoutube = true;
 
     public static void setConfig() {
         FileConfiguration config = plugin.getConfig();
@@ -26,6 +27,7 @@ public class ConfigUtils {
         allowGender = config.getBoolean("Allow-Gender", allowGender);
         allowPronouns = config.getBoolean("Allow-Pronouns", allowPronouns);
         allowDiscord = config.getBoolean("Allow-Discord", allowDiscord);
+        allowYoutube = config.getBoolean("Allow-Youtube", allowYoutube);
         // write in case they're missing
         config.set("Allow-Name", allowName);
         config.set("Allow-Age", allowAge);
@@ -34,6 +36,7 @@ public class ConfigUtils {
         config.set("Allow-Gender", allowGender);
         config.set("Allow-Pronouns", allowPronouns);
         config.set("Allow-Discord", allowDiscord);
+        config.set("Allow-Youtube", allowYoutube);
         plugin.saveConfig();
     }
 
@@ -69,5 +72,9 @@ public class ConfigUtils {
 
     static boolean isAllowDiscord() {
         return allowDiscord;
+    }
+
+    static boolean isAllowYoutube() {
+        return allowYoutube;
     }
 }

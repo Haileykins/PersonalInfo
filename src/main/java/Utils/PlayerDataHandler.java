@@ -70,6 +70,9 @@ public class PlayerDataHandler {
         if(ConfigUtils.isAllowDiscord()) {
             sender.sendMessage(transAltColors(MessageUtils.discordMsg) + " " + pd.discord);
         }
+        if(ConfigUtils.isAllowYoutube()) {
+            sender.sendMessage(transAltColors(MessageUtils.youtubeMsg) + " " + pd.youtube);
+        }
     }
 
     public static void showInfoSelf(Player player) {
@@ -107,6 +110,9 @@ public class PlayerDataHandler {
 
         if(ConfigUtils.isAllowDiscord()) {
             player.sendMessage(transAltColors(MessageUtils.discordMsg) + " " + pd.discord);
+        }
+        if(ConfigUtils.isAllowYoutube()) {
+            player.sendMessage(transAltColors(MessageUtils.youtubeMsg) + " " + pd.youtube);
         }
     }
 
@@ -166,6 +172,12 @@ public class PlayerDataHandler {
                 return;
             }
             pd.discord = data;
+        } else if (type.equalsIgnoreCase("youtube")) {
+            if (!ConfigUtils.isAllowYoutube()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", type));
+            }
+            pd.youtube = data;
         } else {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
             return;
@@ -226,6 +238,13 @@ public class PlayerDataHandler {
                 return;
             }
             pd.discord = transAltColors(MessageUtils.dataNotSet);
+        } else if (type.equalsIgnoreCase("youtube")) {
+            if (!ConfigUtils.isAllowYoutube()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
+                return;
+            }
+            pd.youtube = transAltColors(MessageUtils.dataNotSet);
         } else {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
@@ -285,6 +304,13 @@ public class PlayerDataHandler {
                 return;
             }
             pd.discord = transAltColors(MessageUtils.dataNotSet);
+        } else if (type.equalsIgnoreCase("youtube")) {
+            if (!ConfigUtils.isAllowYoutube()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", type)));
+                return;
+            }
+            pd.youtube = transAltColors(MessageUtils.dataNotSet);
         } else {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
