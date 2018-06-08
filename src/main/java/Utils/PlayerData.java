@@ -26,5 +26,6 @@ class PlayerData {
         gender = "Not Set";
         pronouns = "Not Set";
         discord = "Not Set";
+        youtube = "Not Set";
     }
 }
