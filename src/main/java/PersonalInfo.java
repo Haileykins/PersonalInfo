@@ -7,14 +7,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 @SuppressWarnings("unused")
 public class PersonalInfo extends JavaPlugin {
 
-    private boolean allowName = true;
-    private boolean allowAge = true;
-    private boolean allowBirthday = true;
-    private boolean allowLocation = true;
-    private boolean allowGender = true;
-    private boolean allowPronouns = true;
-    private boolean allowDiscord = true;
-
     @Override
     public void onEnable() {
         if (!getDataFolder().exists()) {
