@@ -48,7 +48,11 @@ public class PlayerDataHandler {
         }
 
         if(ConfigUtils.isAllowAge()) {
-            sender.sendMessage(transAltColors(MessageUtils.ageMsg) + " " + pd.age);
+            if (pd.age == 0) {
+                sender.sendMessage(transAltColors(MessageUtils.ageMsg + " " + MessageUtils.dataNotSet));
+            } else {
+                sender.sendMessage(transAltColors(MessageUtils.ageMsg) + " " + pd.age);
+            }
         }
 
         if(ConfigUtils.isAllowBirthday()) {
@@ -89,7 +93,11 @@ public class PlayerDataHandler {
         }
 
         if(ConfigUtils.isAllowAge()) {
-            player.sendMessage(transAltColors(MessageUtils.ageMsg) + " " + pd.age);
+            if (pd.age == 0) {
+                player.sendMessage(transAltColors(MessageUtils.ageMsg + " " + MessageUtils.dataNotSet));
+            } else {
+                player.sendMessage(transAltColors(MessageUtils.ageMsg) + " " + pd.age);
+            }
         }
 
         if(ConfigUtils.isAllowBirthday()) {
