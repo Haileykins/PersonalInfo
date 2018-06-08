@@ -37,7 +37,7 @@ public class PICommand implements CommandExecutor {
                     CommandUtils.setHelp(player);
                     return true;
                 } else if (args.length == 3) {
-                    PlayerDataHandler.setInfoSelf(player, args[1], args[2]);
+                    PlayerDataHandler.setInfo(player, args[1], args[2]);
                     return true;
                 } else {
                     player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.specifyOptionToSet)

@@ -110,7 +110,7 @@ public class PlayerDataHandler {
         }
     }
 
-    public static void setInfoSelf (Player player, String type, String data){
+    public static void setInfo(Player player, String type, String data){
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
@@ -128,8 +128,7 @@ public class PlayerDataHandler {
             try {
                 pd.age = Integer.parseInt(data);
             } catch(NumberFormatException e) {
-                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.ageNumberOnlyMsg));
                 return;
             }
         } else if (type.equalsIgnoreCase("birthday")) {
@@ -230,7 +229,8 @@ public class PlayerDataHandler {
         } else {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
-        player.sendMessage(transAltColors(MessageUtils.removedDataSelf));
+        player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils
+                .removedDataSelf).replace("{option}", type));
         saveInfo();
     }
 
@@ -289,11 +289,12 @@ public class PlayerDataHandler {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
         // Inform sender data was removed
-        sender.sendMessage(transAltColors(MessageUtils.prefix + MessageUtils.removedDataOthers
+        sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.removedDataOthers
                 .replace("{option}", type).replace("{player}", player.getDisplayName())));
 
         // Inform target player data was removed
-        player.sendMessage(transAltColors( MessageUtils.prefix + MessageUtils.dataRemovedByStaff));
+        player.sendMessage(transAltColors( MessageUtils.prefix + " " + MessageUtils.dataRemovedByStaff)
+                .replace("{option}", type));
         saveInfo();
     }
 
