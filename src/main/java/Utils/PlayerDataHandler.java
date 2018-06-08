@@ -338,6 +338,7 @@ public class PlayerDataHandler {
                 pc.set("gender", pd.gender);
                 pc.set("pronouns", pd.pronouns);
                 pc.set("discord", pd.discord);
+                pc.set("youtube", pd.youtube);
             }
             config.save(file);
         } catch (IOException e) {
@@ -372,6 +373,7 @@ public class PlayerDataHandler {
                 pd.gender = pc.getString("gender");
                 pd.pronouns = pc.getString("pronouns");
                 pd.discord = pc.getString("discord");
+                pd.youtube = pc.getString("youtube");
                 playerInfo.put(pid, pd);
             }
         } catch (Exception e) {
