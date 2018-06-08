@@ -22,6 +22,8 @@ public class CommandUtils {
     public static void staffHelp(CommandSender sender) {
         sender.sendMessage(transAltColors(MessageUtils.helpMenuTitle));
         sender.sendMessage(ChatColor.GOLD + "/pi - " + transAltColors(MessageUtils.helpMenuPiCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi clear - " + transAltColors(MessageUtils.helpMenuClearCommand));
+        sender.sendMessage(ChatColor.GOLD + "/pi clrothers - " + transAltColors(MessageUtils.helpMenuClearOthersCommand));
         sender.sendMessage(ChatColor.GOLD + "/pi delete (type) - " + transAltColors(MessageUtils.helpMenuDeleteCommand));
         sender.sendMessage(ChatColor.GOLD + "/pi delothers (type) (ign) - " + transAltColors(MessageUtils.helpMenuDeleteOthersCommand));
         sender.sendMessage(ChatColor.GOLD + "/pi me - " + transAltColors(MessageUtils.helpMenuMeCommand));

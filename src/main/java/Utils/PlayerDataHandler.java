@@ -261,6 +261,37 @@ public class PlayerDataHandler {
         saveInfo();
     }
 
+    public static void clearInfoSelf(Player player) {
+        File file = new File(plugin.getDataFolder(), "playerInfo.yml");
+        try {
+            FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+            PlayerData pd = info(player.getUniqueId());
+            config.set(pd.playerId.toString(), null);
+            config.save(file);
+            loadInfo();
+            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.clearedDataSelf));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // STAFF ONLY
+    public static void clearInfoOthers(CommandSender sender, Player player) {
+        File file = new File(plugin.getDataFolder(), "playerInfo.yml");
+        try {
+            FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+            PlayerData pd = info(player.getUniqueId());
+            config.set(pd.playerId.toString(), null);
+            config.save(file);
+            loadInfo();
+            sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.clearedDataOthers)
+                    .replace("{player}", player.getDisplayName()));
+            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.dataClearedByStaff));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void deleteInfoOthers (CommandSender sender, Player player, String type){
         PlayerData pd = info(player.getUniqueId());
         if (type.equalsIgnoreCase("name")) {

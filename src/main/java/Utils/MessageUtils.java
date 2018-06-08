@@ -24,8 +24,11 @@ public class MessageUtils {
     static String othersPersonalInfo = "&2Personal Information for {player}";
     static String setInformationMsg = "&2{option} Set To: {info}";
     static String removedDataSelf = "&2Removed Your {option} From Your Personal Information";
+    static String clearedDataSelf = "&2You Have Successfully Cleared Your Profile Data";
     static String removedDataOthers = "&2Removed {option} From Player {player}";
+    static String clearedDataOthers = "&2Removed all data From Player {player}";
     static String dataRemovedByStaff = "&2Your {option} Was Removed By Staff!";
+    static String dataClearedByStaff = "&2Your Profile Was Removed By Staff!";
     static String dataNotSet = "Not Set";
     static String playerHasNotRegisted = "&2{player} has not registered any data!";
     static String youHaveNotRegistered = "&2You have not registered any data!";
@@ -39,6 +42,8 @@ public class MessageUtils {
     public static String playerNotFound = "&2Player {player} not found!";
     static String helpMenuTitle = "&2-----&6PersonalInfo Help&2-----";
     static String helpMenuPiCommand = "&2Brings Up This Help Page";
+    static String helpMenuClearCommand = "&2Clears Your Data From Record";
+    static String helpMenuClearOthersCommand = "&2Clears Specified Player's Data From Record";
     static String helpMenuDeleteCommand = "&2Deletes Specified Info Type";
     static String helpMenuDeleteOthersCommand = "&2Deletes Info For A Player";
     static String helpMenuMeCommand = "&2Shows Your Personal Info";
@@ -64,8 +69,11 @@ public class MessageUtils {
         config.set("othersPersonalInfo", othersPersonalInfo);
         config.set("setInformationMsg", setInformationMsg);
         config.set("removedDataSelf", removedDataSelf);
+        config.set("clearedDataSelf", clearedDataSelf);
         config.set("removedDataOthers", removedDataOthers);
+        config.set("clearedDataOthers", clearedDataOthers);
         config.set("dataRemovedByStaff", dataRemovedByStaff);
+        config.set("dataClearedByStaff", dataClearedByStaff);
         config.set("dataNotSet", dataNotSet);
         config.set("playerHasNotRegisted", playerHasNotRegisted);
         config.set("youHaveNotRegistered", youHaveNotRegistered);
@@ -120,8 +128,11 @@ public class MessageUtils {
         othersPersonalInfo = config.getString("othersPersonalInfo");
         setInformationMsg = config.getString("setInformationMsg");
         removedDataSelf = config.getString("removedDataSelf");
+        clearedDataSelf = config.getString("clearedDataSelf");
         removedDataOthers = config.getString("removedDataOthers");
+        clearedDataOthers = config.getString("clearedDataOthers");
         dataRemovedByStaff = config.getString("dataRemovedByStaff");
+        dataClearedByStaff = config.getString("dataClearedByStaff");
         dataNotSet = config.getString("dataNotSet");
         dataNotSet = config.getString("dataNotSet");
         youHaveNotRegistered = config.getString("youHaveNotRegistered");
@@ -161,8 +172,11 @@ public class MessageUtils {
         othersPersonalInfo = config.getString("othersPersonalInfo");
         setInformationMsg = config.getString("setInformationMsg");
         removedDataSelf = config.getString("removedDataSelf");
+        clearedDataSelf = config.getString("clearedDataSelf");
         removedDataOthers = config.getString("removedDataOthers");
+        clearedDataOthers = config.getString("clearedDataOthers");
         dataRemovedByStaff = config.getString("dataRemovedByStaff");
+        dataClearedByStaff = config.getString("dataClearedByStaff");
         dataNotSet = config.getString("dataNotSet");
         dataNotSet = config.getString("dataNotSet");
         youHaveNotRegistered = config.getString("youHaveNotRegistered");
@@ -197,8 +211,11 @@ public class MessageUtils {
         config.set("othersPersonalInfo", othersPersonalInfo);
         config.set("setInformationMsg", setInformationMsg);
         config.set("removedDataSelf", removedDataSelf);
+        config.set("clearedDataSelf", clearedDataSelf);
         config.set("removedDataOthers", removedDataOthers);
+        config.set("clearedDataOthers", clearedDataOthers);
         config.set("dataRemovedByStaff", dataRemovedByStaff);
+        config.set("dataClearedByStaff", dataClearedByStaff);
         config.set("dataNotSet", dataNotSet);
         config.set("playerHasNotRegisted", playerHasNotRegisted);
         config.set("youHaveNotRegistered", youHaveNotRegistered);

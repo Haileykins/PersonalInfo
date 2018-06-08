@@ -30,6 +30,13 @@ public class PICommand implements CommandExecutor {
         }
 
         // Player commands
+        if (args[0].equalsIgnoreCase("clear")) {
+            if ((sender instanceof Player)) {
+                Player player = (Player) sender;
+                PlayerDataHandler.clearInfoSelf(player);
+                return true;
+            }
+        }
         if (args[0].equalsIgnoreCase("set")) {
             if ((sender instanceof Player)) {
                 Player player = (Player) sender;
@@ -95,6 +102,22 @@ public class PICommand implements CommandExecutor {
 
         // Staff commands
         if (sender.hasPermission("personalinfo.admin")) {
+            if (args[0].equalsIgnoreCase("clrothers")) {
+                if (args.length != 2) {
+                    sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidNumberOfArguments));
+                    return true;
+                } else {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        if (player.getName().equalsIgnoreCase(args[1])) {
+                            PlayerDataHandler.clearInfoOthers(sender, player);
+                            return true;
+                        }
+                    }
+                    sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.playerNotFound
+                            .replace("{player}", args[1])));
+                    return true;
+                }
+            }
             if (args[0].equalsIgnoreCase("delothers")) {
                 if (args.length != 3) {
                     sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidNumberOfArguments));
