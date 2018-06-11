@@ -12,6 +12,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class PICommand implements CommandExecutor {
 
     private static String transAltColors(String message) {
@@ -46,6 +49,14 @@ public class PICommand implements CommandExecutor {
                 } else if (args.length == 3) {
                     PlayerDataHandler.setInfo(player, args[1], args[2]);
                     return true;
+                } else if (args.length > 3) {
+                    if (args[1].equalsIgnoreCase("steam")) {
+                        List<String> list = Arrays.asList(args);
+                        List<String> fullMsg = list.subList(2, args.length);
+                        String steam = String.join(" ", fullMsg);
+                        PlayerDataHandler.setInfo(player, args[1], steam);
+                        return true;
+                    }
                 } else {
                     player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.specifyOptionToSet)
                             .replace("{option}", args[1]));
