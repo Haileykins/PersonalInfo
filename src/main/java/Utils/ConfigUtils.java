@@ -17,6 +17,8 @@ public class ConfigUtils {
     private static boolean allowPronouns = true;
     private static boolean allowDiscord = true;
     private static boolean allowYoutube = true;
+    private static boolean allowTwitch = true;
+    private static boolean allowSteam = true;
 
     public static void setConfig() {
         FileConfiguration config = plugin.getConfig();
@@ -28,6 +30,8 @@ public class ConfigUtils {
         allowPronouns = config.getBoolean("Allow-Pronouns", allowPronouns);
         allowDiscord = config.getBoolean("Allow-Discord", allowDiscord);
         allowYoutube = config.getBoolean("Allow-Youtube", allowYoutube);
+        allowTwitch = config.getBoolean("Allow-Twitch", allowTwitch);
+        allowSteam = config.getBoolean("Allow-Steam", allowSteam);
         // write in case they're missing
         config.set("Allow-Name", allowName);
         config.set("Allow-Age", allowAge);
@@ -37,6 +41,8 @@ public class ConfigUtils {
         config.set("Allow-Pronouns", allowPronouns);
         config.set("Allow-Discord", allowDiscord);
         config.set("Allow-Youtube", allowYoutube);
+        config.set("Allow-Twitch", allowTwitch);
+        config.set("Allow-Steam", allowSteam);
         plugin.saveConfig();
     }
 
@@ -76,5 +82,13 @@ public class ConfigUtils {
 
     static boolean isAllowYoutube() {
         return allowYoutube;
+    }
+
+    public static boolean isAllowTwitch() {
+        return allowTwitch;
+    }
+
+    public static boolean isAllowSteam() {
+        return allowSteam;
     }
 }

@@ -64,5 +64,13 @@ public class CommandUtils {
         if (ConfigUtils.isAllowYoutube()) {
             player.sendMessage(ChatColor.GOLD + "/pi set youtube " + ChatColor.DARK_GREEN + "(your youtube)");
         }
+
+        if (ConfigUtils.isAllowTwitch()) {
+            player.sendMessage(ChatColor.GOLD + "/pi set twitch " + ChatColor.DARK_GREEN + "(your twitch)");
+        }
+
+        if (ConfigUtils.isAllowSteam()) {
+            player.sendMessage(ChatColor.GOLD + "/pi set steam " + ChatColor.DARK_GREEN + "(your steam)");
+        }
     }
 }

@@ -77,6 +77,12 @@ public class PlayerDataHandler {
         if (ConfigUtils.isAllowYoutube()) {
             sender.sendMessage(transAltColors(MessageUtils.youtubeMsg) + " " + pd.youtube);
         }
+        if (ConfigUtils.isAllowTwitch()) {
+            sender.sendMessage(transAltColors(MessageUtils.twitchMsg) + " " + pd.twitch);
+        }
+        if (ConfigUtils.isAllowSteam()) {
+            sender.sendMessage(transAltColors(MessageUtils.steamMsg) + " " + pd.steam);
+        }
     }
 
     public static void showInfoSelf(Player player) {
@@ -121,6 +127,12 @@ public class PlayerDataHandler {
         }
         if (ConfigUtils.isAllowYoutube()) {
             player.sendMessage(transAltColors(MessageUtils.youtubeMsg) + " " + pd.youtube);
+        }
+        if (ConfigUtils.isAllowTwitch()) {
+            player.sendMessage(transAltColors(MessageUtils.twitchMsg) + " " + pd.twitch);
+        }
+        if (ConfigUtils.isAllowSteam()) {
+            player.sendMessage(transAltColors(MessageUtils.steamMsg) + " " + pd.steam);
         }
     }
 
@@ -186,6 +198,18 @@ public class PlayerDataHandler {
                         .replace("{option}", type));
             }
             pd.youtube = data;
+        } else if (type.equalsIgnoreCase("twitch")) {
+            if (!ConfigUtils.isAllowTwitch()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", type));
+            }
+            pd.twitch = data;
+        } else if (type.equalsIgnoreCase("steam")) {
+            if (!ConfigUtils.isAllowSteam()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", type));
+            }
+            pd.steam = data;
         } else {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
             return;
@@ -253,6 +277,18 @@ public class PlayerDataHandler {
                 return;
             }
             pd.youtube = transAltColors(MessageUtils.dataNotSet);
+        } else if (type.equalsIgnoreCase("twitch")) {
+            if (!ConfigUtils.isAllowTwitch()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", type));
+            }
+            pd.twitch = transAltColors(MessageUtils.dataNotSet);
+        } else if (type.equalsIgnoreCase("steam")) {
+            if (!ConfigUtils.isAllowSteam()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", type));
+            }
+            pd.steam = transAltColors(MessageUtils.dataNotSet);
         } else {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
@@ -262,6 +298,7 @@ public class PlayerDataHandler {
     }
 
     public static void clearInfoSelf(Player player) {
+
         File file = new File(plugin.getDataFolder(), "playerInfo.yml");
         try {
             FileConfiguration config = YamlConfiguration.loadConfiguration(file);
@@ -350,6 +387,18 @@ public class PlayerDataHandler {
                 return;
             }
             pd.youtube = transAltColors(MessageUtils.dataNotSet);
+        } else if (type.equalsIgnoreCase("twitch")) {
+            if (!ConfigUtils.isAllowTwitch()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", type));
+            }
+            pd.twitch = transAltColors(MessageUtils.dataNotSet);
+        } else if (type.equalsIgnoreCase("steam")) {
+            if (!ConfigUtils.isAllowSteam()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", type));
+            }
+            pd.steam = transAltColors(MessageUtils.dataNotSet);
         } else {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
@@ -380,6 +429,8 @@ public class PlayerDataHandler {
                 pc.set("pronouns", pd.pronouns);
                 pc.set("discord", pd.discord);
                 pc.set("youtube", pd.youtube);
+                pc.set("twitch", pd.twitch);
+                pc.set("steam", pd.steam);
             }
             config.save(file);
         } catch (IOException e) {
@@ -415,6 +466,8 @@ public class PlayerDataHandler {
                 pd.pronouns = pc.getString("pronouns");
                 pd.discord = pc.getString("discord");
                 pd.youtube = pc.getString("youtube");
+                pd.twitch = pc.getString("twitch");
+                pd.steam = pc.getString("steam");
                 playerInfo.put(pid, pd);
             }
         } catch (Exception e) {

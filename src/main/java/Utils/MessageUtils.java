@@ -20,6 +20,8 @@ public class MessageUtils {
     static String pronounsMsg = "&2Pronouns:&f";
     static String discordMsg = "&2Discord:&f";
     static String youtubeMsg = "&2Youtube:&f";
+    static String twitchMsg = "&2Twitch:&f";
+    static String steamMsg = "&2Steam:&f";
     static String yourPersonalInfo = "&2Your Personal Information";
     static String othersPersonalInfo = "&2Personal Information for {player}";
     static String setInformationMsg = "&2{option} Set To: {info}";
@@ -65,6 +67,8 @@ public class MessageUtils {
         config.set("pronounsMsg", pronounsMsg);
         config.set("discordMsg", discordMsg);
         config.set("youtubeMsg", youtubeMsg);
+        config.set("twitchMsg", twitchMsg);
+        config.set("steamMsg", steamMsg);
         config.set("yourPersonalInfo", yourPersonalInfo);
         config.set("othersPersonalInfo", othersPersonalInfo);
         config.set("setInformationMsg", setInformationMsg);
@@ -124,6 +128,8 @@ public class MessageUtils {
         pronounsMsg = config.getString("pronounsMsg");
         discordMsg = config.getString("discordMsg");
         youtubeMsg = config.getString("youtubeMsg");
+        twitchMsg = config.getString("twitchMsg");
+        steamMsg = config.getString("steamMsg");
         yourPersonalInfo = config.getString("yourPersonalInfo");
         othersPersonalInfo = config.getString("othersPersonalInfo");
         setInformationMsg = config.getString("setInformationMsg");
@@ -168,6 +174,8 @@ public class MessageUtils {
         pronounsMsg = config.getString("pronounsMsg");
         discordMsg = config.getString("discordMsg");
         youtubeMsg = config.getString("youtubeMsg");
+        twitchMsg = config.getString("twitchMsg");
+        steamMsg = config.getString("steamMsg");
         yourPersonalInfo = config.getString("yourPersonalInfo");
         othersPersonalInfo = config.getString("othersPersonalInfo");
         setInformationMsg = config.getString("setInformationMsg");
@@ -207,6 +215,8 @@ public class MessageUtils {
         config.set("pronounsMsg", pronounsMsg);
         config.set("discordMsg", discordMsg);
         config.set("youtubeMsg", youtubeMsg);
+        config.set("twitchMsg", twitchMsg);
+        config.set("steamMsg", steamMsg);
         config.set("yourPersonalInfo", yourPersonalInfo);
         config.set("othersPersonalInfo", othersPersonalInfo);
         config.set("setInformationMsg", setInformationMsg);
