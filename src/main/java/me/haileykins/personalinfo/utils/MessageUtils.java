@@ -155,7 +155,6 @@ public class MessageUtils {
         dataRemovedByStaff = config.getString("dataRemovedByStaff");
         dataClearedByStaff = config.getString("dataClearedByStaff");
         dataNotSet = config.getString("dataNotSet");
-        dataNotSet = config.getString("dataNotSet");
         youHaveNotRegistered = config.getString("youHaveNotRegistered");
         optionDisabled = config.getString("optionDisabled");
         unknownOptionType = config.getString("unknownOptionType");
@@ -201,7 +200,6 @@ public class MessageUtils {
         clearedDataOthers = config.getString("clearedDataOthers");
         dataRemovedByStaff = config.getString("dataRemovedByStaff");
         dataClearedByStaff = config.getString("dataClearedByStaff");
-        dataNotSet = config.getString("dataNotSet");
         dataNotSet = config.getString("dataNotSet");
         youHaveNotRegistered = config.getString("youHaveNotRegistered");
         optionDisabled = config.getString("optionDisabled");
