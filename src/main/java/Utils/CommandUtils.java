@@ -72,5 +72,9 @@ public class CommandUtils {
         if (ConfigUtils.isAllowSteam()) {
             player.sendMessage(ChatColor.GOLD + "/pi set steam " + ChatColor.DARK_GREEN + "(your steam)");
         }
+
+        if (ConfigUtils.isAllowBio()) {
+            player.sendMessage(ChatColor.GOLD + "/pi set bio " + ChatColor.DARK_GREEN + "(your bio)");
+        }
     }
 }

@@ -19,6 +19,7 @@ public class ConfigUtils {
     private static boolean allowYoutube = true;
     private static boolean allowTwitch = true;
     private static boolean allowSteam = true;
+    private static boolean allowBio = true;
 
     public static void setConfig() {
         FileConfiguration config = plugin.getConfig();
@@ -32,6 +33,7 @@ public class ConfigUtils {
         allowYoutube = config.getBoolean("Allow-Youtube", allowYoutube);
         allowTwitch = config.getBoolean("Allow-Twitch", allowTwitch);
         allowSteam = config.getBoolean("Allow-Steam", allowSteam);
+        allowBio = config.getBoolean("Allow-Bio");
         // write in case they're missing
         config.set("Allow-Name", allowName);
         config.set("Allow-Age", allowAge);
@@ -43,6 +45,7 @@ public class ConfigUtils {
         config.set("Allow-Youtube", allowYoutube);
         config.set("Allow-Twitch", allowTwitch);
         config.set("Allow-Steam", allowSteam);
+        config.set("Allow-Bio", allowBio);
         plugin.saveConfig();
     }
 
@@ -90,5 +93,9 @@ public class ConfigUtils {
 
     public static boolean isAllowSteam() {
         return allowSteam;
+    }
+
+    static boolean isAllowBio() {
+        return allowBio;
     }
 }

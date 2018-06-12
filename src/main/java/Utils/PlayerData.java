@@ -16,6 +16,7 @@ class PlayerData {
     String youtube;
     String twitch;
     String steam;
+    String bio;
 
     PlayerData(UUID id) {
         playerId = id;
@@ -29,5 +30,6 @@ class PlayerData {
         youtube = "Not Set";
         twitch = "Not Set";
         steam = "Not Set";
+        bio = "Not Set";
     }
 }

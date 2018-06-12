@@ -57,6 +57,14 @@ public class PICommand implements CommandExecutor {
                         PlayerDataHandler.setInfo(player, args[1], steam);
                         return true;
                     }
+
+                    if (args[1].equalsIgnoreCase("bio")) {
+                        List<String> list = Arrays.asList(args);
+                        List<String> fullMsg = list.subList(2, args.length);
+                        String bio = String.join(" ", fullMsg);
+                        PlayerDataHandler.setInfo(player, args[1], bio);
+                        return true;
+                    }
                 } else {
                     player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.specifyOptionToSet)
                             .replace("{option}", args[1]));

@@ -83,6 +83,10 @@ public class PlayerDataHandler {
         if (ConfigUtils.isAllowSteam()) {
             sender.sendMessage(transAltColors(MessageUtils.steamMsg) + " " + pd.steam);
         }
+
+        if (ConfigUtils.isAllowBio()) {
+            sender.sendMessage(transAltColors(MessageUtils.bioMsg + " " + pd.bio));
+        }
     }
 
     public static void showInfoSelf(Player player) {
@@ -133,6 +137,10 @@ public class PlayerDataHandler {
         }
         if (ConfigUtils.isAllowSteam()) {
             player.sendMessage(transAltColors(MessageUtils.steamMsg) + " " + pd.steam);
+        }
+
+        if (ConfigUtils.isAllowBio()) {
+            player.sendMessage(transAltColors(MessageUtils.bioMsg + " " + pd.bio));
         }
     }
 
@@ -210,6 +218,12 @@ public class PlayerDataHandler {
                         .replace("{option}", type));
             }
             pd.steam = data;
+        } else if (type.equalsIgnoreCase("bio")) {
+            if (!ConfigUtils.isAllowBio()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", MessageUtils.formatOption(type)));
+            }
+            pd.bio = data;
         } else {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
             return;
@@ -289,6 +303,12 @@ public class PlayerDataHandler {
                         .replace("{option}", type));
             }
             pd.steam = transAltColors(MessageUtils.dataNotSet);
+        } else if (type.equalsIgnoreCase("bio")) {
+            if (!ConfigUtils.isAllowBio()) {
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", MessageUtils.formatOption(type)));
+            }
+            pd.bio = transAltColors(MessageUtils.dataNotSet);
         } else {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
@@ -399,6 +419,12 @@ public class PlayerDataHandler {
                         .replace("{option}", type));
             }
             pd.steam = transAltColors(MessageUtils.dataNotSet);
+        } else if (type.equalsIgnoreCase("bio")) {
+            if (!ConfigUtils.isAllowBio()) {
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", MessageUtils.formatOption(type)));
+            }
+            pd.bio = transAltColors(MessageUtils.dataNotSet);
         } else {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
@@ -431,6 +457,7 @@ public class PlayerDataHandler {
                 pc.set("youtube", pd.youtube);
                 pc.set("twitch", pd.twitch);
                 pc.set("steam", pd.steam);
+                pc.set("bio", pd.bio);
             }
             config.save(file);
         } catch (IOException e) {
@@ -468,6 +495,7 @@ public class PlayerDataHandler {
                 pd.youtube = pc.getString("youtube");
                 pd.twitch = pc.getString("twitch");
                 pd.steam = pc.getString("steam");
+                pd.bio = pc.getString("bio");
                 playerInfo.put(pid, pd);
             }
         } catch (Exception e) {
