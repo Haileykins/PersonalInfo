@@ -1,9 +1,9 @@
-package Commands;
+package me.haileykins.personalinfo.commands;
 
-import Utils.CommandUtils;
-import Utils.ConfigUtils;
-import Utils.MessageUtils;
-import Utils.PlayerDataHandler;
+import me.haileykins.personalinfo.utils.CommandUtils;
+import me.haileykins.personalinfo.utils.ConfigUtils;
+import me.haileykins.personalinfo.utils.MessageUtils;
+import me.haileykins.personalinfo.utils.PlayerDataHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -32,7 +32,7 @@ public class PICommand implements CommandExecutor {
             return true;
         }
 
-        // Player commands
+        // Player me.haileykins.personalinfo.commands
         if (args[0].equalsIgnoreCase("clear")) {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
@@ -126,7 +126,7 @@ public class PICommand implements CommandExecutor {
             }
         }
 
-        // Staff commands
+        // Staff me.haileykins.personalinfo.commands
         if (sender.hasPermission("personalinfo.admin")) {
             if (args[0].equalsIgnoreCase("clrothers")) {
                 if (args.length != 2) {

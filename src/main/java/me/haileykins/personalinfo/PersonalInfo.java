@@ -1,7 +1,9 @@
-import Commands.PICommand;
-import Utils.ConfigUtils;
-import Utils.MessageUtils;
-import Utils.PlayerDataHandler;
+package me.haileykins.personalinfo;
+
+import me.haileykins.personalinfo.commands.PICommand;
+import me.haileykins.personalinfo.utils.ConfigUtils;
+import me.haileykins.personalinfo.utils.MessageUtils;
+import me.haileykins.personalinfo.utils.PlayerDataHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @SuppressWarnings("unused")

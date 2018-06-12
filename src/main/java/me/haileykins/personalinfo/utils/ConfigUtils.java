@@ -1,4 +1,4 @@
-package Utils;
+package me.haileykins.personalinfo.utils;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;

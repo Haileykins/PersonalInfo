@@ -1,4 +1,4 @@
-package Utils;
+package me.haileykins.personalinfo.utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

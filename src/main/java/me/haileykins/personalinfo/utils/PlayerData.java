@@ -1,4 +1,4 @@
-package Utils;
+package me.haileykins.personalinfo.utils;
 
 import java.util.UUID;
 
