@@ -86,11 +86,11 @@ public class ConfigUtils {
         return allowYoutube;
     }
 
-    public static boolean isAllowTwitch() {
+    static boolean isAllowTwitch() {
         return allowTwitch;
     }
 
-    public static boolean isAllowSteam() {
+    static boolean isAllowSteam() {
         return allowSteam;
     }
 
