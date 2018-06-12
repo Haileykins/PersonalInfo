@@ -409,14 +409,14 @@ public class PlayerDataHandler {
             pd.youtube = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("twitch")) {
             if (!ConfigUtils.isAllowTwitch()) {
-                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
-                        .replace("{option}", type));
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", MessageUtils.formatOption(type)));
             }
             pd.twitch = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("steam")) {
             if (!ConfigUtils.isAllowSteam()) {
-                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
-                        .replace("{option}", type));
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
+                        .replace("{option}", MessageUtils.formatOption(type)));
             }
             pd.steam = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("bio")) {
