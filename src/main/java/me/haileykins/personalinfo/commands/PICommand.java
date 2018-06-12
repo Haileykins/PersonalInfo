@@ -62,7 +62,7 @@ public class PICommand implements CommandExecutor {
                         String bio = String.join(" ", fullMsg);
 
                         if (bio.length() > 160) {
-                            player.sendMessage("Your Bio Is To Long! 160 Characters Max!");
+                            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.bioTooLong));
                             return true;
                         }
 

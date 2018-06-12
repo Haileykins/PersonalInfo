@@ -44,6 +44,7 @@ public class MessageUtils {
     static String dataRemovedByStaff = "&2Your {option} Was Removed By Staff!";
     static String dataClearedByStaff = "&2Your Profile Was Removed By Staff!";
     static String dataNotSet = "Not Set";
+    public static String bioTooLong = "&2Your bio is too long! Max 160 Characters!";
     static String playerHasNotRegisted = "&2{player} has not registered any data!";
     static String youHaveNotRegistered = "&2You have not registered any data!";
     static String optionDisabled = "&2{option}s Are Disabled On This Server";
@@ -92,6 +93,7 @@ public class MessageUtils {
         config.set("dataRemovedByStaff", dataRemovedByStaff);
         config.set("dataClearedByStaff", dataClearedByStaff);
         config.set("dataNotSet", dataNotSet);
+        config.set("bioTooLong", bioTooLong);
         config.set("playerHasNotRegisted", playerHasNotRegisted);
         config.set("youHaveNotRegistered", youHaveNotRegistered);
         config.set("optionDisabled", optionDisabled);
@@ -155,6 +157,7 @@ public class MessageUtils {
         dataRemovedByStaff = config.getString("dataRemovedByStaff");
         dataClearedByStaff = config.getString("dataClearedByStaff");
         dataNotSet = config.getString("dataNotSet");
+        bioTooLong = config.getString("bioTooLong");
         youHaveNotRegistered = config.getString("youHaveNotRegistered");
         optionDisabled = config.getString("optionDisabled");
         unknownOptionType = config.getString("unknownOptionType");
@@ -201,6 +204,7 @@ public class MessageUtils {
         dataRemovedByStaff = config.getString("dataRemovedByStaff");
         dataClearedByStaff = config.getString("dataClearedByStaff");
         dataNotSet = config.getString("dataNotSet");
+        bioTooLong = config.getString("bioTooLong");
         youHaveNotRegistered = config.getString("youHaveNotRegistered");
         optionDisabled = config.getString("optionDisabled");
         unknownOptionType = config.getString("unknownOptionType");
@@ -242,6 +246,7 @@ public class MessageUtils {
         config.set("dataRemovedByStaff", dataRemovedByStaff);
         config.set("dataClearedByStaff", dataClearedByStaff);
         config.set("dataNotSet", dataNotSet);
+        config.set("bioTooLong", bioTooLong);
         config.set("playerHasNotRegisted", playerHasNotRegisted);
         config.set("youHaveNotRegistered", youHaveNotRegistered);
         config.set("optionDisabled", optionDisabled);
