@@ -22,16 +22,16 @@ public class ConfigUtils {
 
     public static void setConfig() {
         FileConfiguration config = plugin.getConfig();
-        allowName = config.getBoolean("Allow-Name", allowName);
-        allowAge = config.getBoolean("Allow-Age", allowAge);
-        allowBirthday = config.getBoolean("Allow-Birthday", allowBirthday);
-        allowLocation = config.getBoolean("Allow-Location", allowLocation);
-        allowGender = config.getBoolean("Allow-Gender", allowGender);
-        allowPronouns = config.getBoolean("Allow-Pronouns", allowPronouns);
-        allowDiscord = config.getBoolean("Allow-Discord", allowDiscord);
-        allowYoutube = config.getBoolean("Allow-Youtube", allowYoutube);
-        allowTwitch = config.getBoolean("Allow-Twitch", allowTwitch);
-        allowSteam = config.getBoolean("Allow-Steam", allowSteam);
+        allowName = config.getBoolean("Allow-Name");
+        allowAge = config.getBoolean("Allow-Age");
+        allowBirthday = config.getBoolean("Allow-Birthday");
+        allowLocation = config.getBoolean("Allow-Location");
+        allowGender = config.getBoolean("Allow-Gender");
+        allowPronouns = config.getBoolean("Allow-Pronouns");
+        allowDiscord = config.getBoolean("Allow-Discord");
+        allowYoutube = config.getBoolean("Allow-Youtube");
+        allowTwitch = config.getBoolean("Allow-Twitch");
+        allowSteam = config.getBoolean("Allow-Steam");
         allowBio = config.getBoolean("Allow-Bio");
         // write in case they're missing
         config.set("Allow-Name", allowName);
