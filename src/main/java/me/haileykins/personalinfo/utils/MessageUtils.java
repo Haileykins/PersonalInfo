@@ -17,7 +17,7 @@ public class MessageUtils {
         return fl + rst;
     }
 
-    public static String prefix = "&6[me.haileykins.personalinfo.PersonalInfo]&f";
+    public static String prefix = "&6[PersonalInfo]&f";
     static String nameMsg = "&2Name:&f";
     static String ageMsg = "&2Age:&f";
     static String birthdayMsg = "&2Birthday:&f";
