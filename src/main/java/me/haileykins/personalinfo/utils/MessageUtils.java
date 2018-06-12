@@ -95,6 +95,7 @@ public class MessageUtils {
         config.set("mustBeAPlayer", mustBeAPlayer);
         config.set("invalidNumberOfArguments", invalidNumberOfArguments);
         config.set("invalidSubCmd", invalidSubCmd);
+        config.set("playerNotFound", playerNotFound);
         config.set("helpMenuTitle", helpMenuTitle);
         config.set("helpMenuPiCommand", helpMenuPiCommand);
         config.set("helpMenuDeleteCommand", helpMenuDeleteCommand);
@@ -246,6 +247,7 @@ public class MessageUtils {
         config.set("mustBeAPlayer", mustBeAPlayer);
         config.set("invalidNumberOfArguments", invalidNumberOfArguments);
         config.set("invalidSubCmd", invalidSubCmd);
+        config.set("playerNotFound", playerNotFound);
         config.set("helpMenuTitle", helpMenuTitle);
         config.set("helpMenuPiCommand", helpMenuPiCommand);
         config.set("helpMenuDeleteCommand", helpMenuDeleteCommand);
