@@ -402,8 +402,8 @@ public class PlayerDataHandler {
             pd.discord = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("youtube")) {
             if (!ConfigUtils.isAllowYoutube()) {
-                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.youtube = transAltColors(MessageUtils.dataNotSet);
