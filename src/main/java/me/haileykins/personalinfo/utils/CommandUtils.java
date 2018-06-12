@@ -4,11 +4,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CommandUtils {
+import static me.haileykins.personalinfo.utils.MessageUtils.transAltColors;
 
-    private static String transAltColors(String message) {
-        return ChatColor.translateAlternateColorCodes('&', message);
-    }
+public class CommandUtils {
 
     public static void playerHelp(CommandSender sender) {
         sender.sendMessage(transAltColors(MessageUtils.helpMenuTitle));

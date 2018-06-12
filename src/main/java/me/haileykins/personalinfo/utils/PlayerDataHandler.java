@@ -15,6 +15,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import static me.haileykins.personalinfo.utils.MessageUtils.transAltColors;
+
 public class PlayerDataHandler {
 
     public static Plugin plugin;
@@ -26,10 +28,6 @@ public class PlayerDataHandler {
             saveInfo();
         }
         return playerInfo.get(id);
-    }
-
-    private static String transAltColors(String message) {
-        return ChatColor.translateAlternateColorCodes('&', message);
     }
 
     public static void showInfoOthers(CommandSender sender, OfflinePlayer player) {

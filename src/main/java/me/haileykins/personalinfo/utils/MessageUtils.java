@@ -1,5 +1,6 @@
 package me.haileykins.personalinfo.utils;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -10,6 +11,10 @@ import java.io.IOException;
 public class MessageUtils {
 
     public static Plugin plugin;
+
+    public static String transAltColors(String message) {
+        return ChatColor.translateAlternateColorCodes('&', message);
+    }
 
     public static String formatOption(String word) {
         String fl = word.substring(0,1).toUpperCase();

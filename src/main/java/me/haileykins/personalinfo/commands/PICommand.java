@@ -14,11 +14,9 @@ import org.bukkit.entity.Player;
 import java.util.Arrays;
 import java.util.List;
 
-public class PICommand implements CommandExecutor {
+import static me.haileykins.personalinfo.utils.MessageUtils.transAltColors;
 
-    private static String transAltColors(String message) {
-        return ChatColor.translateAlternateColorCodes('&', message);
-    }
+public class PICommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         // Check for no args, then check perms/console status, display correlating help menu
