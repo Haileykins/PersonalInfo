@@ -59,9 +59,16 @@ public class PICommand implements CommandExecutor {
                     }
 
                     if (args[1].equalsIgnoreCase("bio")) {
+                        // TODO: Configurable Bio Length Checks
                         List<String> list = Arrays.asList(args);
                         List<String> fullMsg = list.subList(2, args.length);
                         String bio = String.join(" ", fullMsg);
+
+                        if (bio.length() > 160) {
+                            player.sendMessage("Your Bio Is To Long! 160 Characters Max!");
+                            return true;
+                        }
+
                         PlayerDataHandler.setInfo(player, args[1], bio);
                         return true;
                     }
