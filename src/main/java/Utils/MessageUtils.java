@@ -11,6 +11,12 @@ public class MessageUtils {
 
     public static Plugin plugin;
 
+    public static String formatOption(String word) {
+        String fl = word.substring(0,1).toUpperCase();
+        String rst = word.substring(1).toLowerCase();
+        return fl + rst;
+    }
+
     public static String prefix = "&6[PersonalInfo]&f";
     static String nameMsg = "&2Name:&f";
     static String ageMsg = "&2Age:&f";

@@ -149,14 +149,14 @@ public class PlayerDataHandler {
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.name = data;
         } else if (type.equalsIgnoreCase("age")) {
             if (!ConfigUtils.isAllowAge()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             try {
@@ -168,54 +168,54 @@ public class PlayerDataHandler {
         } else if (type.equalsIgnoreCase("birthday")) {
             if (!ConfigUtils.isAllowBirthday()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.birthday = data;
         } else if (type.equalsIgnoreCase("location")) {
             if (!ConfigUtils.isAllowLocation()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.location = data;
         } else if (type.equalsIgnoreCase("gender")) {
             if (!ConfigUtils.isAllowGender()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.gender = data;
         } else if (type.equalsIgnoreCase("pronouns")) {
             if (!ConfigUtils.isAllowPronouns()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.pronouns = data;
         } else if (type.equalsIgnoreCase("discord")) {
             if (!ConfigUtils.isAllowDiscord()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.discord = data;
         } else if (type.equalsIgnoreCase("youtube")) {
             if (!ConfigUtils.isAllowYoutube()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
-                        .replace("{option}", type));
+                        .replace("{option}", MessageUtils.formatOption(type)));
             }
             pd.youtube = data;
         } else if (type.equalsIgnoreCase("twitch")) {
             if (!ConfigUtils.isAllowTwitch()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
-                        .replace("{option}", type));
+                        .replace("{option}", MessageUtils.formatOption(type)));
             }
             pd.twitch = data;
         } else if (type.equalsIgnoreCase("steam")) {
             if (!ConfigUtils.isAllowSteam()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
-                        .replace("{option}", type));
+                        .replace("{option}", MessageUtils.formatOption(type)));
             }
             pd.steam = data;
         } else if (type.equalsIgnoreCase("bio")) {
@@ -229,7 +229,7 @@ public class PlayerDataHandler {
             return;
         }
         player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.setInformationMsg
-                .replace("{option}", type).replace("{info}", data)));
+                .replace("{option}", MessageUtils.formatOption(type)).replace("{info}", data)));
         saveInfo();
     }
 
@@ -238,69 +238,69 @@ public class PlayerDataHandler {
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.name = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("age")) {
             if (!ConfigUtils.isAllowAge()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.age = 0;
         } else if (type.equalsIgnoreCase("birthday")) {
             if (!ConfigUtils.isAllowBirthday()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.birthday = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("location")) {
             if (!ConfigUtils.isAllowLocation()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.location = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("gender")) {
             if (!ConfigUtils.isAllowGender()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.gender = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("pronouns")) {
             if (!ConfigUtils.isAllowPronouns()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.pronouns = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("discord")) {
             if (!ConfigUtils.isAllowDiscord()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.discord = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("youtube")) {
             if (!ConfigUtils.isAllowYoutube()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.youtube = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("twitch")) {
             if (!ConfigUtils.isAllowTwitch()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
-                        .replace("{option}", type));
+                        .replace("{option}", MessageUtils.formatOption(type)));
             }
             pd.twitch = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("steam")) {
             if (!ConfigUtils.isAllowSteam()) {
                 player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled)
-                        .replace("{option}", type));
+                        .replace("{option}", MessageUtils.formatOption(type)));
             }
             pd.steam = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("bio")) {
@@ -313,7 +313,7 @@ public class PlayerDataHandler {
             player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.unknownOptionType));
         }
         player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils
-                .removedDataSelf).replace("{option}", type));
+                .removedDataSelf).replace("{option}", MessageUtils.formatOption(type)));
         saveInfo();
     }
 
@@ -354,49 +354,49 @@ public class PlayerDataHandler {
         if (type.equalsIgnoreCase("name")) {
             if (!ConfigUtils.isAllowName()) {
                 sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.name = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("age")) {
             if (!ConfigUtils.isAllowAge()) {
                 sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.age = 0;
         } else if (type.equalsIgnoreCase("birthday")) {
             if (!ConfigUtils.isAllowBirthday()) {
                 sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.birthday = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("location")) {
             if (!ConfigUtils.isAllowLocation()) {
                 sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.location = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("gender")) {
             if (!ConfigUtils.isAllowGender()) {
                 sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.gender = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("pronouns")) {
             if (!ConfigUtils.isAllowPronouns()) {
                 sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.pronouns = transAltColors(MessageUtils.dataNotSet);
         } else if (type.equalsIgnoreCase("discord")) {
             if (!ConfigUtils.isAllowDiscord()) {
                 sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.optionDisabled
-                        .replace("{option}", type)));
+                        .replace("{option}", MessageUtils.formatOption(type))));
                 return;
             }
             pd.discord = transAltColors(MessageUtils.dataNotSet);
@@ -430,11 +430,11 @@ public class PlayerDataHandler {
         }
         // Inform sender data was removed
         sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.removedDataOthers
-                .replace("{option}", type).replace("{player}", player.getDisplayName())));
+                .replace("{option}", MessageUtils.formatOption(type)).replace("{player}", player.getDisplayName())));
 
         // Inform target player data was removed
         player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.dataRemovedByStaff)
-                .replace("{option}", type));
+                .replace("{option}", MessageUtils.formatOption(type)));
         saveInfo();
     }
 

@@ -67,7 +67,7 @@ public class PICommand implements CommandExecutor {
                     }
                 } else {
                     player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.specifyOptionToSet)
-                            .replace("{option}", args[1]));
+                            .replace("{option}", MessageUtils.formatOption(args[1])));
                     return true;
                 }
             } else {
