@@ -5,7 +5,6 @@ import me.haileykins.personalinfo.utils.ConfigUtils;
 import me.haileykins.personalinfo.utils.MessageUtils;
 import me.haileykins.personalinfo.utils.PlayerDataHandler;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
