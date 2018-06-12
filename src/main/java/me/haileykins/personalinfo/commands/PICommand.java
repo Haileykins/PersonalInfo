@@ -133,11 +133,11 @@ public class PICommand implements CommandExecutor {
                     sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidNumberOfArguments));
                     return true;
                 } else {
-                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                        if (player.getName().equalsIgnoreCase(args[1])) {
-                            PlayerDataHandler.clearInfoOthers(sender, player);
-                            return true;
-                        }
+                    Player player = Bukkit.getPlayer(args[1]);
+                    //noinspection deprecation
+                    if (player != null) {
+                        PlayerDataHandler.clearInfoOthers(sender, player);
+                        return true;
                     }
                     sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.playerNotFound
                             .replace("{player}", args[1])));
@@ -149,15 +149,16 @@ public class PICommand implements CommandExecutor {
                     sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidNumberOfArguments));
                     return true;
                 } else {
-                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                        if (player.getName().equalsIgnoreCase(args[1])) {
-                            PlayerDataHandler.deleteInfoOthers(sender, player, args[2]);
-                            return true;
-                        }
+                    Player player = Bukkit.getPlayer(args[1]);
+                    //noinspection deprecation
+                    if (player != null) {
+                        PlayerDataHandler.deleteInfoOthers(sender, player, args[2]);
+                        return true;
                     }
                     sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.playerNotFound
                             .replace("{player}", args[1])));
                     return true;
+
                 }
             }
             if (args[0].equalsIgnoreCase("reload")) {
@@ -177,7 +178,10 @@ public class PICommand implements CommandExecutor {
                 }
             }
         }
-        sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidSubCmd));
+
+        sender.sendMessage(
+
+                transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidSubCmd));
         return true;
     }
 }
