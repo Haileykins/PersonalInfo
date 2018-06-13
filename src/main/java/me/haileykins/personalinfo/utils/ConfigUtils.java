@@ -19,7 +19,8 @@ public class ConfigUtils {
     private static boolean allowTwitch = true;
     private static boolean allowSteam = true;
     private static boolean allowBio = true;
-    public static int bioCharLength = 160;
+    @SuppressWarnings("FieldCanBeLocal")
+    private static int bioCharLength = 160;
 
     public static void setConfig() {
         FileConfiguration config = plugin.getConfig();
