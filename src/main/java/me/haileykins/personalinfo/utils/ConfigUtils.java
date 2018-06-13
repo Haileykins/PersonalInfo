@@ -19,6 +19,7 @@ public class ConfigUtils {
     private static boolean allowTwitch = true;
     private static boolean allowSteam = true;
     private static boolean allowBio = true;
+    public static int bioCharLength = 160;
 
     public static void setConfig() {
         FileConfiguration config = plugin.getConfig();
@@ -33,6 +34,7 @@ public class ConfigUtils {
         allowTwitch = config.getBoolean("Allow-Twitch");
         allowSteam = config.getBoolean("Allow-Steam");
         allowBio = config.getBoolean("Allow-Bio");
+        bioCharLength = config.getInt("Bio-Character-Length", 160);
         // write in case they're missing
         config.set("Allow-Name", allowName);
         config.set("Allow-Age", allowAge);
@@ -45,6 +47,7 @@ public class ConfigUtils {
         config.set("Allow-Twitch", allowTwitch);
         config.set("Allow-Steam", allowSteam);
         config.set("Allow-Bio", allowBio);
+        config.set("Bio-Character-Length", bioCharLength);
         plugin.saveConfig();
     }
 
