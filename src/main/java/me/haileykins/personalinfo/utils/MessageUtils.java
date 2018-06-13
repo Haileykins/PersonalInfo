@@ -44,7 +44,7 @@ public class MessageUtils {
     static String dataRemovedByStaff = "&2Your {option} Was Removed By Staff!";
     static String dataClearedByStaff = "&2Your Profile Was Removed By Staff!";
     static String dataNotSet = "Not Set";
-    public static String bioTooLong = "&2Your bio is too long! Max 160 Characters!";
+    public static String bioTooLong = "&2Your bio is too long! Max {length} Characters!";
     static String playerHasNotRegisted = "&2{player} has not registered any data!";
     static String youHaveNotRegistered = "&2You have not registered any data!";
     static String optionDisabled = "&2{option}s Are Disabled On This Server";

@@ -56,13 +56,12 @@ public class PICommand implements CommandExecutor {
                     }
 
                     if (args[1].equalsIgnoreCase("bio")) {
-                        // TODO: Configurable Bio Length Checks
                         List<String> list = Arrays.asList(args);
                         List<String> fullMsg = list.subList(2, args.length);
                         String bio = String.join(" ", fullMsg);
-
-                        if (bio.length() > 160) {
-                            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.bioTooLong));
+                        if (bio.length() > ConfigUtils.bioCharLength) {
+                            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.bioTooLong
+                                    .replace("{number}", Integer.toString(ConfigUtils.bioCharLength))));
                             return true;
                         }
 
