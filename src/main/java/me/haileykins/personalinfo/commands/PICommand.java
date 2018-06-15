@@ -29,7 +29,7 @@ public class PICommand implements CommandExecutor {
             return true;
         }
 
-        // Player me.haileykins.personalinfo.commands
+        // Player Commands
         if (args[0].equalsIgnoreCase("clear")) {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
