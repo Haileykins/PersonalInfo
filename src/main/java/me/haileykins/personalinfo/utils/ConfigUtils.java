@@ -7,7 +7,6 @@ public class ConfigUtils {
 
     public static Plugin plugin;
 
-
     private static boolean allowName = true;
     private static boolean allowAge = true;
     private static boolean allowBirthday = true;
