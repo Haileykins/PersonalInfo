@@ -19,7 +19,7 @@ import static me.haileykins.personalinfo.utils.MessageUtils.transAltColors;
 public class PICommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        // Check for no args, then check perms/console status, display correlating help menu
+        // If No Args, Return Help Menu
         if (args.length == 0) {
             if (sender.hasPermission("personalinfo.admin") || !(sender instanceof Player)) {
                 CommandUtils.staffHelp(sender);
