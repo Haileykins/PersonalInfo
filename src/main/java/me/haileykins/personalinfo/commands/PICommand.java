@@ -50,6 +50,22 @@ public class PICommand implements CommandExecutor {
                     PlayerDataHandler.setInfo(player, args[1], args[2]);
                     return true;
                 } else if (args.length > 3) {
+                    List<String> fullMsg = Arrays.asList(args).subList(2, args.length);
+                    if (args[1].equalsIgnoreCase("name")) {
+                        if (ConfigUtils.isAllowLastName()) {
+                            String name = String.join(" ", fullMsg);
+                            if (name.length() > ConfigUtils.nameCharLength) {
+                                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.nameTooLong
+                                        .replace("{length}", Integer.toString(ConfigUtils.nameCharLength))));
+                                return true;
+                            }
+                            PlayerDataHandler.setInfo(player, args[1], name);
+                            return true;
+                        }
+                        player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.firstNameOnly));
+                        return true;
+                    }
+
                     if (args[1].equalsIgnoreCase("steam")) {
                         List<String> list = Arrays.asList(args);
                         List<String> fullMsg = list.subList(2, args.length);

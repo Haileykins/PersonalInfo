@@ -8,6 +8,8 @@ public class ConfigUtils {
     public static Plugin plugin;
 
     private static boolean allowName = true;
+    private static boolean allowLastName = false;
+    public static int nameCharLength = 25;
     private static boolean allowAge = true;
     private static boolean allowBirthday = true;
     private static boolean allowLocation = true;
@@ -24,6 +26,8 @@ public class ConfigUtils {
     public static void setConfig() {
         FileConfiguration config = plugin.getConfig();
         allowName = config.getBoolean("Allow-Name", allowName);
+        allowLastName = config.getBoolean("Allow-Last-Name", allowLastName);
+        nameCharLength = config.getInt("Name-Character-Length", nameCharLength);
         allowAge = config.getBoolean("Allow-Age", allowAge);
         allowBirthday = config.getBoolean("Allow-Birthday", allowBirthday);
         allowLocation = config.getBoolean("Allow-Location", allowLocation);
@@ -37,6 +41,8 @@ public class ConfigUtils {
         bioCharLength = config.getInt("Bio-Character-Length", bioCharLength);
         // write in case they're missing
         config.set("Allow-Name", allowName);
+        config.set("Allow-Last-Name", allowLastName);
+        config.set("Name-Character-Length", nameCharLength);
         config.set("Allow-Age", allowAge);
         config.set("Allow-Birthday", allowBirthday);
         config.set("Allow-Location", allowLocation);
@@ -99,5 +105,9 @@ public class ConfigUtils {
 
     static boolean isAllowBio() {
         return allowBio;
+    }
+
+    public static boolean isAllowLastName() {
+        return allowLastName;
     }
 }
