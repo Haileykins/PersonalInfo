@@ -67,34 +67,24 @@ public class PICommand implements CommandExecutor {
                     }
 
                     if (args[1].equalsIgnoreCase("steam")) {
-                        List<String> list = Arrays.asList(args);
-                        List<String> fullMsg = list.subList(2, args.length);
                         String steam = String.join(" ", fullMsg);
                         PlayerDataHandler.setInfo(player, args[1], steam);
                         return true;
                     }
 
                     if (args[1].equalsIgnoreCase("bio")) {
-                        // TODO: Configurable Bio Length Checks
-                        List<String> list = Arrays.asList(args);
-                        List<String> fullMsg = list.subList(2, args.length);
                         String bio = String.join(" ", fullMsg);
-
-                        if (bio.length() > 160) {
-                            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.bioTooLong));
+                        if (bio.length() > ConfigUtils.bioCharLength) {
+                            player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.bioTooLong
+                                    .replace("{length}", Integer.toString(ConfigUtils.bioCharLength))));
                             return true;
                         }
-
                         PlayerDataHandler.setInfo(player, args[1], bio);
                         return true;
                     }
-                } else {
-                    player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.specifyOptionToSet)
-                            .replace("{option}", MessageUtils.formatOption(args[1])));
-                    return true;
                 }
-            } else {
-                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.mustBeAPlayer));
+                player.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.specifyOptionToSet)
+                        .replace("{option}", MessageUtils.formatOption(args[1])));
                 return true;
             }
             sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.mustBeAPlayer));

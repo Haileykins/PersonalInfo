@@ -21,7 +21,7 @@ public class ConfigUtils {
     private static boolean allowSteam = true;
     private static boolean allowBio = true;
     @SuppressWarnings("FieldCanBeLocal")
-    private static int bioCharLength = 160;
+    public static int bioCharLength = 160;
 
     public static void setConfig() {
         FileConfiguration config = plugin.getConfig();
