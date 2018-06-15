@@ -24,18 +24,18 @@ public class ConfigUtils {
 
     public static void setConfig() {
         FileConfiguration config = plugin.getConfig();
-        allowName = config.getBoolean("Allow-Name", true);
-        allowAge = config.getBoolean("Allow-Age", true);
-        allowBirthday = config.getBoolean("Allow-Birthday", true);
-        allowLocation = config.getBoolean("Allow-Location", true);
-        allowGender = config.getBoolean("Allow-Gender", true);
-        allowPronouns = config.getBoolean("Allow-Pronouns", true);
-        allowDiscord = config.getBoolean("Allow-Discord", true);
-        allowYoutube = config.getBoolean("Allow-Youtube", true);
-        allowTwitch = config.getBoolean("Allow-Twitch", true);
-        allowSteam = config.getBoolean("Allow-Steam", true);
-        allowBio = config.getBoolean("Allow-Bio", true);
-        bioCharLength = config.getInt("Bio-Character-Length", 160);
+        allowName = config.getBoolean("Allow-Name", allowName);
+        allowAge = config.getBoolean("Allow-Age", allowAge);
+        allowBirthday = config.getBoolean("Allow-Birthday", allowBirthday);
+        allowLocation = config.getBoolean("Allow-Location", allowLocation);
+        allowGender = config.getBoolean("Allow-Gender", allowGender);
+        allowPronouns = config.getBoolean("Allow-Pronouns", allowPronouns);
+        allowDiscord = config.getBoolean("Allow-Discord", allowDiscord);
+        allowYoutube = config.getBoolean("Allow-Youtube", allowYoutube);
+        allowTwitch = config.getBoolean("Allow-Twitch", allowTwitch);
+        allowSteam = config.getBoolean("Allow-Steam", allowSteam);
+        allowBio = config.getBoolean("Allow-Bio", allowBio);
+        bioCharLength = config.getInt("Bio-Character-Length", bioCharLength);
         // write in case they're missing
         config.set("Allow-Name", allowName);
         config.set("Allow-Age", allowAge);
