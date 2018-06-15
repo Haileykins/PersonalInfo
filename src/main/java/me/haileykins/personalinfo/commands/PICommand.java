@@ -36,7 +36,10 @@ public class PICommand implements CommandExecutor {
                 PlayerDataHandler.clearInfoSelf(player);
                 return true;
             }
+            sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.mustBeAPlayer));
+            return true;
         }
+
         if (args[0].equalsIgnoreCase("set")) {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
@@ -78,6 +81,8 @@ public class PICommand implements CommandExecutor {
                 sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.mustBeAPlayer));
                 return true;
             }
+            sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.mustBeAPlayer));
+            return true;
         }
 
         if (args[0].equalsIgnoreCase("show")) {
@@ -102,10 +107,9 @@ public class PICommand implements CommandExecutor {
                 Player player = (Player) sender;
                 PlayerDataHandler.showInfoSelf(player);
                 return true;
-            } else {
-                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.mustBeAPlayer));
-                return true;
             }
+            sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.mustBeAPlayer));
+            return true;
         }
 
         if (args[0].equalsIgnoreCase("delete")) {
@@ -167,7 +171,12 @@ public class PICommand implements CommandExecutor {
 
                 }
             }
-            if (args[0].equalsIgnoreCase("reload")) {
+            sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.noPermission));
+            return true;
+        }
+
+        if (args[0].equalsIgnoreCase("reload")) {
+            if (sender.hasPermission("personalinfo.admin")) {
                 if (args.length != 2) {
                     sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.reloadHelpMsg));
                     return true;
@@ -182,12 +191,14 @@ public class PICommand implements CommandExecutor {
                     Bukkit.getLogger().info("Config File Reloaded!");
                     return true;
                 }
+                sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidSubCmd));
+                return true;
             }
+            sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.noPermission));
+            return true;
         }
 
-        sender.sendMessage(
-
-                transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidSubCmd));
+        sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidSubCmd));
         return true;
     }
 }
