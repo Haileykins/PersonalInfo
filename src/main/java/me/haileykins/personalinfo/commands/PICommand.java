@@ -126,6 +126,9 @@ public class PICommand implements CommandExecutor {
         // Staff me.haileykins.personalinfo.commands
         if (sender.hasPermission("personalinfo.admin")) {
             if (args[0].equalsIgnoreCase("clrothers")) {
+        // Staff Commands
+        if (args[0].equalsIgnoreCase("clrothers")) {
+            if (sender.hasPermission("personalinfo.admin")) {
                 if (args.length != 2) {
                     sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidNumberOfArguments));
                     return true;
@@ -141,7 +144,13 @@ public class PICommand implements CommandExecutor {
                     return true;
                 }
             }
-            if (args[0].equalsIgnoreCase("delothers")) {
+            sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.noPermission));
+            return true;
+        }
+
+
+        if (args[0].equalsIgnoreCase("delothers")) {
+            if (sender.hasPermission("personalinfo.admin")) {
                 if (args.length != 3) {
                     sender.sendMessage(transAltColors(MessageUtils.prefix + " " + MessageUtils.invalidNumberOfArguments));
                     return true;

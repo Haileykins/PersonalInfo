@@ -55,6 +55,7 @@ public class MessageUtils {
     public static String invalidNumberOfArguments = "&2Invalid Number of Arguments";
     public static String invalidSubCmd = "&2Invalid Sub Command!";
     public static String playerNotFound = "&2Player {player} not found!";
+    public static String noPermission = "&2You don't have permission to do this!";
     static String helpMenuTitle = "&2-----&6PersonalInfo Help&2-----";
     static String helpMenuPiCommand = "&2Brings Up This Help Page";
     static String helpMenuClearCommand = "&2Clears Your Data From Record";
@@ -103,6 +104,7 @@ public class MessageUtils {
         config.set("invalidNumberOfArguments", invalidNumberOfArguments);
         config.set("invalidSubCmd", invalidSubCmd);
         config.set("playerNotFound", playerNotFound);
+        config.set("noPermission", noPermission);
         config.set("helpMenuTitle", helpMenuTitle);
         config.set("helpMenuPiCommand", helpMenuPiCommand);
         config.set("helpMenuDeleteCommand", helpMenuDeleteCommand);
@@ -166,6 +168,7 @@ public class MessageUtils {
         invalidNumberOfArguments = config.getString("invalidNumberOfArguments");
         invalidSubCmd = config.getString("invalidSubCmd");
         playerNotFound = config.getString("playerNotFound");
+        noPermission = config.getString("noPermission");
         helpMenuTitle = config.getString("helpMenuTitle");
         helpMenuPiCommand = config.getString("helpMenuPiCommand");
         helpMenuDeleteCommand = config.getString("helpMenuDeleteCommand");
@@ -213,6 +216,7 @@ public class MessageUtils {
         invalidNumberOfArguments = config.getString("invalidNumberOfArguments");
         invalidSubCmd = config.getString("invalidSubCmd");
         playerNotFound = config.getString("playerNotFound");
+        noPermission = config.getString("noPermission");
         helpMenuTitle = config.getString("helpMenuTitle");
         helpMenuPiCommand = config.getString("helpMenuPiCommand");
         helpMenuDeleteCommand = config.getString("helpMenuDeleteCommand");
@@ -256,6 +260,7 @@ public class MessageUtils {
         config.set("invalidNumberOfArguments", invalidNumberOfArguments);
         config.set("invalidSubCmd", invalidSubCmd);
         config.set("playerNotFound", playerNotFound);
+        config.set("noPermission", noPermission);
         config.set("helpMenuTitle", helpMenuTitle);
         config.set("helpMenuPiCommand", helpMenuPiCommand);
         config.set("helpMenuDeleteCommand", helpMenuDeleteCommand);
