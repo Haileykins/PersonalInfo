@@ -1,6 +1,7 @@
 package me.haileykins.personalinfo;
 
 import me.haileykins.personalinfo.commands.PICommand;
+import me.haileykins.personalinfo.utils.CommandUtils;
 import me.haileykins.personalinfo.utils.ConfigUtils;
 import me.haileykins.personalinfo.utils.MessageUtils;
 import me.haileykins.personalinfo.utils.PlayerDataHandler;
@@ -11,6 +12,13 @@ public class PersonalInfo extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // Initiate Instances
+        MessageUtils msgUtils = new MessageUtils(this);
+        ConfigUtils cfgUtils = new ConfigUtils(this);
+        CommandUtils cmdUtils = new CommandUtils(msgUtils, cfgUtils);
+        PlayerDataHandler pdh = new PlayerDataHandler(this, msgUtils, cmdUtils, cfgUtils);
+
+        // Check For/Create Data Folder
         if (!getDataFolder().exists()) {
             getLogger().info("No Data Folder Found! Creating...");
             if (!getDataFolder().mkdirs()) {
@@ -20,21 +28,26 @@ public class PersonalInfo extends JavaPlugin {
             getLogger().info("Data Folder Created!");
         }
 
-        PlayerDataHandler.plugin = this;
+        // Load Players Data File
         getLogger().info("Loading Info!");
-        PlayerDataHandler.loadInfo();
+        pdh.loadInfo();
         getLogger().info("Info Loaded!");
-        ConfigUtils.plugin = this;
+
+        // Load Config File
         getLogger().info("Loading Config!");
-        ConfigUtils.setConfig();
+        cfgUtils.setConfig();
         getLogger().info("Config Loaded!");
-        MessageUtils.plugin = this;
+
+        // Load Message File
         getLogger().info("Loading Language File");
-        MessageUtils.loadLang();
+        msgUtils.loadLang();
         getLogger().info("Language File Loaded!");
 
-        getCommand("pi").setExecutor(new PICommand());
-        getLogger().info("Enabled");
+        // Register Commands
+        getCommand("pi").setExecutor(new PICommand(msgUtils, cmdUtils, cfgUtils, pdh));
+
+        // Display Successful Load
+        getLogger().info("Enabled: Startup Successful");
     }
 
     @Override
