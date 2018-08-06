@@ -75,6 +75,7 @@ public class MessageUtils {
     public String configReloaded = "&2Config File Reloaded!";
     public String langFileReloaded = "&2Language File Reloaded";
     public String reloadHelpMsg = "&2/pi reload lang or /pi reload config to reload files";
+    public String pluginOutOfDate = "&cYour Version Is Outdated!";
 
     private void saveLang() {
         File file = new File(plugin.getDataFolder(), "language.yml");

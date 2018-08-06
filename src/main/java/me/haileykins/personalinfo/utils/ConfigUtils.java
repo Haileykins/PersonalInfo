@@ -11,6 +11,7 @@ public class ConfigUtils {
         plugin = pl;
     }
 
+    public boolean updaterEnabled = true;
     private boolean allowName = true;
     private boolean allowLastName = false;
     public int nameCharLength = 25;
@@ -43,6 +44,7 @@ public class ConfigUtils {
         allowSteam = config.getBoolean("Allow-Steam", allowSteam);
         allowBio = config.getBoolean("Allow-Bio", allowBio);
         bioCharLength = config.getInt("Bio-Character-Length", bioCharLength);
+        updaterEnabled = config.getBoolean("Enable-Update-Notifications", updaterEnabled);
         // write in case they're missing
         config.set("Allow-Name", allowName);
         config.set("Allow-Last-Name", allowLastName);
@@ -58,6 +60,7 @@ public class ConfigUtils {
         config.set("Allow-Steam", allowSteam);
         config.set("Allow-Bio", allowBio);
         config.set("Bio-Character-Length", bioCharLength);
+        config.set("Enable-Update-Notifications", updaterEnabled);
         plugin.saveConfig();
     }
 

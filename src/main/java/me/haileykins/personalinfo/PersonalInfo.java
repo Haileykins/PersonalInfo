@@ -1,6 +1,7 @@
 package me.haileykins.personalinfo;
 
 import me.haileykins.personalinfo.commands.PICommand;
+import me.haileykins.personalinfo.listeners.UpdateListener;
 import me.haileykins.personalinfo.utils.CommandUtils;
 import me.haileykins.personalinfo.utils.ConfigUtils;
 import me.haileykins.personalinfo.utils.MessageUtils;
@@ -42,6 +43,9 @@ public class PersonalInfo extends JavaPlugin {
         getLogger().info("Loading Language File");
         msgUtils.loadLang();
         getLogger().info("Language File Loaded!");
+
+        // Register Listeners
+        getServer().getPluginManager().registerEvents(new UpdateListener(cfgUtils, this, msgUtils), this);
 
         // Register Commands
         getCommand("pi").setExecutor(new PICommand(msgUtils, cmdUtils, cfgUtils, pdh));
