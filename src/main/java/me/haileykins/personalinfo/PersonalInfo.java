@@ -47,9 +47,4 @@ public class PersonalInfo extends JavaPlugin {
         // Display Successful Load
         getLogger().info("Enabled: Startup Successful");
     }
-
-    @Override
-    public void onDisable() {
-        getLogger().info("Disabled");
-    }
 }
