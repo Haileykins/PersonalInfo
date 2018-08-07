@@ -27,6 +27,19 @@ public class MessageUtils {
     }
 
     public String prefix = "&6[PersonalInfo]&f";
+    public String firstNameOnly = "&2Last Name's Are Disabled!";
+    public String nameTooLong = "&2Name Too Long! Max {length} Characters";
+    public String bioTooLong = "&2Your bio is too long! Max {length} Characters!";
+    public String specifyOptionToSet = "&2Please specify your {option}";
+    public String mustBeAPlayer = "&2You must be a player to use this command!";
+    public String invalidNumberOfArguments = "&2Invalid Number of Arguments";
+    public String invalidSubCmd = "&2Invalid Sub Command!";
+    public String playerNotFound = "&2Player {player} not found!";
+    public String noPermission = "&2You don't have permission to do this!";
+    public String configReloaded = "&2Config File Reloaded!";
+    public String langFileReloaded = "&2Language File Reloaded";
+    public String reloadHelpMsg = "&2/pi reload lang or /pi reload config to reload files";
+    public String pluginOutOfDate = "&cYour Version Is Outdated!";
     String nameMsg = "&2Name:&f";
     String ageMsg = "&2Age:&f";
     String birthdayMsg = "&2Birthday:&f";
@@ -48,20 +61,11 @@ public class MessageUtils {
     String dataRemovedByStaff = "&2Your {option} Was Removed By Staff!";
     String dataClearedByStaff = "&2Your Profile Was Removed By Staff!";
     String dataNotSet = "Not Set";
-    public String firstNameOnly = "&2Last Name's Are Disabled!";
-    public String nameTooLong = "&2Name Too Long! Max {length} Characters";
-    public String bioTooLong = "&2Your bio is too long! Max {length} Characters!";
     String playerHasNotRegisted = "&2{player} has not registered any data!";
     String youHaveNotRegistered = "&2You have not registered any data!";
     String optionDisabled = "&2{option}s Are Disabled On This Server";
     String unknownOptionType = "&2Unknown Info Type!";
-    public String specifyOptionToSet = "&2Please specify your {option}";
     String ageNumberOnlyMsg = "&2Your age must be numerical!";
-    public String mustBeAPlayer = "&2You must be a player to use this command!";
-    public String invalidNumberOfArguments = "&2Invalid Number of Arguments";
-    public String invalidSubCmd = "&2Invalid Sub Command!";
-    public String playerNotFound = "&2Player {player} not found!";
-    public String noPermission = "&2You don't have permission to do this!";
     String helpMenuTitle = "&2-----&6PersonalInfo Help&2-----";
     String helpMenuPiCommand = "&2Brings Up This Help Page";
     String helpMenuClearCommand = "&2Clears Your Data From Record";
@@ -71,10 +75,6 @@ public class MessageUtils {
     String helpMenuMeCommand = "&2Shows Your Personal Info";
     String helpMenuSetCommand = "&2Sets Specified Info Type";
     String helpMenuShowCommand = "&2Shows Another Player's Info";
-    public String configReloaded = "&2Config File Reloaded!";
-    public String langFileReloaded = "&2Language File Reloaded";
-    public String reloadHelpMsg = "&2/pi reload lang or /pi reload config to reload files";
-    public String pluginOutOfDate = "&cYour Version Is Outdated!";
 
     private void saveLang() {
         File file = new File(plugin.getDataFolder(), "language.yml");
