@@ -12,9 +12,8 @@ public class ConfigUtils {
     }
 
     public boolean updaterEnabled = true;
-    private boolean allowName = true;
-    private boolean allowLastName = false;
     public int nameCharLength = 25;
+    public int bioCharLength = 160;
     private boolean allowAge = true;
     private boolean allowBirthday = true;
     private boolean allowLocation = true;
@@ -25,8 +24,8 @@ public class ConfigUtils {
     private boolean allowTwitch = true;
     private boolean allowSteam = true;
     private boolean allowBio = true;
-    @SuppressWarnings("FieldCanBeLocal")
-    public int bioCharLength = 160;
+    private boolean allowName = true;
+    private boolean allowLastName = false;
 
     public void setConfig() {
         FileConfiguration config = plugin.getConfig();
