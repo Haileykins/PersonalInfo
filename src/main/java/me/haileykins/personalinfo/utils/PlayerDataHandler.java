@@ -482,7 +482,7 @@ public class PlayerDataHandler {
             e.printStackTrace();
         }
 
-        // Otherwise, load the players perms from the file
+        // Otherwise, load the players data from the file
         try {
             playerInfo.clear();
             FileConfiguration config = YamlConfiguration.loadConfiguration(file);
