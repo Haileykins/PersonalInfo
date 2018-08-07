@@ -6,6 +6,7 @@ import me.haileykins.personalinfo.utils.CommandUtils;
 import me.haileykins.personalinfo.utils.ConfigUtils;
 import me.haileykins.personalinfo.utils.MessageUtils;
 import me.haileykins.personalinfo.utils.PlayerDataHandler;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @SuppressWarnings("unused")
@@ -13,6 +14,9 @@ public class PersonalInfo extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        Metrics metrics = new Metrics(this);
+
         // Initiate Instances
         MessageUtils msgUtils = new MessageUtils(this);
         ConfigUtils cfgUtils = new ConfigUtils(this);
