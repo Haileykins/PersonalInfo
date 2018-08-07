@@ -33,7 +33,7 @@ public class CommandUtils {
         sender.sendMessage(ChatColor.GOLD + "/pi me - " + msgUtils.transAltColors(msgUtils.helpMenuMeCommand));
         sender.sendMessage(ChatColor.GOLD + "/pi set (type) (info) - " + msgUtils.transAltColors(msgUtils.helpMenuSetCommand));
         sender.sendMessage(ChatColor.GOLD + "/pi show (ign) - " + msgUtils.transAltColors(msgUtils.helpMenuShowCommand));
-        sender.sendMessage(ChatColor.GOLD + "/pi reset (lang/config) - " + msgUtils.reloadHelpMsg);
+        sender.sendMessage(ChatColor.GOLD + "/pi reset (lang/config) - " + msgUtils.transAltColors(msgUtils.reloadHelpMsg));
     }
 
     public void setHelp(Player player) {
