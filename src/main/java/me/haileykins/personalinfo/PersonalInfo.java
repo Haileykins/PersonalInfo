@@ -33,20 +33,10 @@ public class PersonalInfo extends JavaPlugin {
             getLogger().info("Data Folder Created!");
         }
 
-        // Load Players Data File
-        getLogger().info("Loading Info!");
+        // Load Flat Files
         pdh.loadInfo();
-        getLogger().info("Info Loaded!");
-
-        // Load Config File
-        getLogger().info("Loading Config!");
         cfgUtils.setConfig();
-        getLogger().info("Config Loaded!");
-
-        // Load Message File
-        getLogger().info("Loading Language File");
         msgUtils.loadLang();
-        getLogger().info("Language File Loaded!");
 
         // Register Listeners
         getServer().getPluginManager().registerEvents(new UpdateListener(cfgUtils, this, msgUtils), this);
