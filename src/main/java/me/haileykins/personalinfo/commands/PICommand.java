@@ -31,7 +31,7 @@ public class PICommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         // If No Args, Return Help Menu
         if (args.length == 0) {
-            if (sender.hasPermission("personalinfo.admin") || !(sender instanceof Player)) {
+            if (sender.hasPermission("personalinfo.admin")) {
                 cmdUtils.staffHelp(sender);
                 return true;
             }
