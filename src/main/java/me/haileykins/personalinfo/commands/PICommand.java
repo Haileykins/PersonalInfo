@@ -150,7 +150,6 @@ public class PICommand implements CommandExecutor {
                     return true;
                 } else {
                     Player player = Bukkit.getPlayer(args[1]);
-                    //noinspection deprecation
                     if (player != null) {
                         pdh.clearInfoOthers(sender, player);
                         return true;
@@ -172,7 +171,6 @@ public class PICommand implements CommandExecutor {
                     return true;
                 } else {
                     Player player = Bukkit.getPlayer(args[1]);
-                    //noinspection deprecation
                     if (player != null) {
                         pdh.deleteInfoOthers(sender, player, args[2]);
                         return true;
