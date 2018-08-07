@@ -21,7 +21,7 @@ public class PersonalInfo extends JavaPlugin {
         MessageUtils msgUtils = new MessageUtils(this);
         ConfigUtils cfgUtils = new ConfigUtils(this);
         CommandUtils cmdUtils = new CommandUtils(msgUtils, cfgUtils);
-        PlayerDataHandler pdh = new PlayerDataHandler(this, msgUtils, cmdUtils, cfgUtils);
+        PlayerDataHandler pdh = new PlayerDataHandler(this, msgUtils, cfgUtils);
 
         // Check For/Create Data Folder
         if (!getDataFolder().exists()) {

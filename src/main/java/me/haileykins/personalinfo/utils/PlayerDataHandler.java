@@ -19,13 +19,11 @@ public class PlayerDataHandler {
 
     private PersonalInfo plugin;
     private MessageUtils msgUtils;
-    private CommandUtils cmdUtils;
     private ConfigUtils cfgUtils;
 
-    public PlayerDataHandler(PersonalInfo pl, MessageUtils messageUtils, CommandUtils commandUtils, ConfigUtils configUtils) {
+    public PlayerDataHandler(PersonalInfo pl, MessageUtils messageUtils, ConfigUtils configUtils) {
         plugin = pl;
         msgUtils = messageUtils;
-        cmdUtils = commandUtils;
         cfgUtils = configUtils;
     }
 
