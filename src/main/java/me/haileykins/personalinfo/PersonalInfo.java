@@ -1,50 +1,51 @@
 package me.haileykins.personalinfo;
 
-import me.haileykins.personalinfo.commands.PICommand;
+import me.haileykins.personalinfo.commands.CommandManager;
 import me.haileykins.personalinfo.listeners.UpdateListener;
-import me.haileykins.personalinfo.utils.CommandUtils;
-import me.haileykins.personalinfo.utils.ConfigUtils;
-import me.haileykins.personalinfo.utils.MessageUtils;
-import me.haileykins.personalinfo.utils.PlayerDataHandler;
+import me.haileykins.personalinfo.utils.*;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
-@SuppressWarnings("unused")
+/**
+ * Main class
+ */
 public class PersonalInfo extends JavaPlugin {
 
+    /**
+     * Called on server startup
+     */
     @Override
     public void onEnable() {
 
+        @SuppressWarnings("unused")
         Metrics metrics = new Metrics(this);
 
-        // Initiate Instances
-        MessageUtils msgUtils = new MessageUtils(this);
         ConfigUtils cfgUtils = new ConfigUtils(this);
+        MessageUtils msgUtils = new MessageUtils(this);
         CommandUtils cmdUtils = new CommandUtils(msgUtils, cfgUtils);
-        PlayerDataHandler pdh = new PlayerDataHandler(this, msgUtils, cfgUtils);
+        DataUtils dataUtils = new DataUtils(cfgUtils, msgUtils);
+        DatabaseUtils dbUtils = new DatabaseUtils(cfgUtils, dataUtils);
 
-        // Check For/Create Data Folder
         if (!getDataFolder().exists()) {
-            getLogger().info("No Data Folder Found! Creating...");
-            if (!getDataFolder().mkdirs()) {
-                getLogger().severe("DISABLING! Failed To Create Directories.");
+            if (getDataFolder().mkdirs()) {
+                getLogger().severe("DISABLING! Failed To Create Directories");
                 getServer().getPluginManager().disablePlugin(this);
             }
-            getLogger().info("Data Folder Created!");
         }
 
-        // Load Flat Files
-        pdh.loadInfo();
-        cfgUtils.setConfig();
+        cfgUtils.loadConfig();
         msgUtils.loadLang();
 
-        // Register Listeners
+        if (cfgUtils.useMySQL()) {
+            dbUtils.connectToSQL();
+        } else {
+            new SQLiteUtils(this);
+            dbUtils.connectToSQLite();
+        }
+
         getServer().getPluginManager().registerEvents(new UpdateListener(cfgUtils, this, msgUtils), this);
 
-        // Register Commands
-        getCommand("pi").setExecutor(new PICommand(msgUtils, cmdUtils, cfgUtils, pdh));
+        getCommand("personalinfo").setExecutor(new CommandManager(this, dbUtils, msgUtils, cmdUtils, cfgUtils));
 
-        // Display Successful Load
-        getLogger().info("Enabled: Startup Successful");
     }
 }

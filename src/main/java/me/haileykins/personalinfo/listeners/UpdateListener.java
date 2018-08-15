@@ -15,7 +15,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
-public class UpdateListener  implements Listener {
+/**
+ * Class for handling everything related to the update notifications for server admin
+ */
+public class UpdateListener implements Listener {
 
     private PersonalInfo plugin;
     private ConfigUtils cfgUtils;
@@ -29,28 +32,34 @@ public class UpdateListener  implements Listener {
         msgUtils = messageUtils;
     }
 
+    /**
+     * Called when a player joins, designed to tell players with permissions that the plugin needs updating
+     * @param event The PlayerJoinEvent
+     */
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        if (!cfgUtils.updaterEnabled) {
+        if (!cfgUtils.isUpdaterEnabled()) {
             return;
         }
 
         Player player = event.getPlayer();
 
-        if (player.hasPermission("personalinfo.admin")) {
-            Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
-                try {
-                    HttpsURLConnection connection = (HttpsURLConnection) new URL(resourceURL).openConnection();
-                    String version = new BufferedReader(new InputStreamReader(connection.getInputStream())).readLine();
-
-                    if (!plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
-                        player.sendMessage(msgUtils.transAltColors(msgUtils.prefix + " " + msgUtils.pluginOutOfDate));
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
+        if (!player.hasPermission("personalinfo.admin")) {
+            return;
         }
+
+        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                HttpsURLConnection connection = (HttpsURLConnection) new URL(resourceURL).openConnection();
+                String version = new BufferedReader(new InputStreamReader(connection.getInputStream())).readLine();
+
+                if (!plugin.getDescription().getVersion().equalsIgnoreCase(version)) {
+                    player.sendMessage(msgUtils.getPrefixMessage("plugin-out-of-date"));
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
