@@ -5,5 +5,6 @@ description: Simple Plugin to Handle and Control Players Personal Data
 main: me.haileykins.personalinfo.PersonalInfo
 
 commands:
-    pi:
-      description: The Main Command
+  personalinfo:
+    description: Root Command
+    aliases: [pi]

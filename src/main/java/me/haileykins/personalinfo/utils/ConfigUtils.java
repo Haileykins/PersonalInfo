@@ -1,8 +1,12 @@
 package me.haileykins.personalinfo.utils;
 
 import me.haileykins.personalinfo.PersonalInfo;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
+/**
+ * The class designed to handle every interaction between the config file and the plugin
+ */
 public class ConfigUtils {
 
     private PersonalInfo plugin;
@@ -11,67 +15,84 @@ public class ConfigUtils {
         plugin = pl;
     }
 
-    public boolean updaterEnabled = true;
-    private boolean allowName = true;
-    private boolean allowLastName = false;
-    public int nameCharLength = 25;
-    private boolean allowAge = true;
-    private boolean allowBirthday = true;
-    private boolean allowLocation = true;
-    private boolean allowGender = true;
-    private boolean allowPronouns = true;
-    private boolean allowDiscord = true;
-    private boolean allowYoutube = true;
-    private boolean allowTwitch = true;
-    private boolean allowSteam = true;
-    private boolean allowBio = true;
-    @SuppressWarnings("FieldCanBeLocal")
-    public int bioCharLength = 160;
+    private boolean updaterEnabled;
+    private boolean allowName;
+    private boolean allowNickname;
+    private boolean allowAge;
+    private boolean allowBirthday;
+    private boolean allowLocation;
+    private boolean allowGender;
+    private boolean allowPronouns;
+    private boolean allowDiscord;
+    private boolean allowYoutube;
+    private boolean allowTwitch;
+    private boolean allowSteam;
+    private boolean allowBio;
+    private boolean useMySQL;
+    private String address;
+    private int port;
+    private String database;
+    private String username;
+    private String password;
 
-    public void setConfig() {
+    /**
+     * Called when the server starts or reloads to obtain and store the data from the config file
+     */
+    public void loadConfig() {
+        plugin.saveDefaultConfig();
+
         FileConfiguration config = plugin.getConfig();
-        allowName = config.getBoolean("Allow-Name", allowName);
-        allowLastName = config.getBoolean("Allow-Last-Name", allowLastName);
-        nameCharLength = config.getInt("Name-Character-Length", nameCharLength);
-        allowAge = config.getBoolean("Allow-Age", allowAge);
-        allowBirthday = config.getBoolean("Allow-Birthday", allowBirthday);
-        allowLocation = config.getBoolean("Allow-Location", allowLocation);
-        allowGender = config.getBoolean("Allow-Gender", allowGender);
-        allowPronouns = config.getBoolean("Allow-Pronouns", allowPronouns);
-        allowDiscord = config.getBoolean("Allow-Discord", allowDiscord);
-        allowYoutube = config.getBoolean("Allow-Youtube", allowYoutube);
-        allowTwitch = config.getBoolean("Allow-Twitch", allowTwitch);
-        allowSteam = config.getBoolean("Allow-Steam", allowSteam);
-        allowBio = config.getBoolean("Allow-Bio", allowBio);
-        bioCharLength = config.getInt("Bio-Character-Length", bioCharLength);
-        updaterEnabled = config.getBoolean("Enable-Update-Notifications", updaterEnabled);
-        // write in case they're missing
-        config.set("Allow-Name", allowName);
-        config.set("Allow-Last-Name", allowLastName);
-        config.set("Name-Character-Length", nameCharLength);
-        config.set("Allow-Age", allowAge);
-        config.set("Allow-Birthday", allowBirthday);
-        config.set("Allow-Location", allowLocation);
-        config.set("Allow-Gender", allowGender);
-        config.set("Allow-Pronouns", allowPronouns);
-        config.set("Allow-Discord", allowDiscord);
-        config.set("Allow-Youtube", allowYoutube);
-        config.set("Allow-Twitch", allowTwitch);
-        config.set("Allow-Steam", allowSteam);
-        config.set("Allow-Bio", allowBio);
-        config.set("Bio-Character-Length", bioCharLength);
-        config.set("Enable-Update-Notifications", updaterEnabled);
+        ConfigurationSection mysql = config.getConfigurationSection("MySQL");
+
+        updaterEnabled = config.getBoolean("Enable-Update-Notifications");
+        allowName = config.getBoolean("Allow-Name");
+        allowNickname = config.getBoolean("Allow-Nickname");
+        allowAge = config.getBoolean("Allow-Age");
+        allowBirthday = config.getBoolean("Allow-Birthday");
+        allowLocation = config.getBoolean("Allow-Location");
+        allowGender = config.getBoolean("Allow-Gender");
+        allowPronouns = config.getBoolean("Allow-Pronouns");
+        allowDiscord = config.getBoolean("Allow-Discord");
+        allowYoutube = config.getBoolean("Allow-Youtube");
+        allowTwitch = config.getBoolean("Allow-Twitch");
+        allowSteam = config.getBoolean("Allow-Steam");
+        allowBio = config.getBoolean("Allow-Bio");
+
+        useMySQL = mysql.getBoolean("Use-MySQL");
+        address = mysql.getString("Host-Name");
+        port = mysql.getInt("Port");
+        database = mysql.getString("Database-Name");
+        username = mysql.getString("Username");
+        password = mysql.getString("Password");
+
         plugin.saveConfig();
     }
 
+    /**
+     * Called the /pi reload config command is run to re-obtain any new data from the config file
+     */
     public void reloadConfig() {
         plugin.reloadConfig();
-        setConfig();
+        loadConfig();
         plugin.getConfig();
+    }
+
+    /**
+     * Called when a player joins the server with a certain permission, used to decide if the plugin should
+     * send a message regarding the status of the plugins version if it is out of date
+     *
+     * @return the True or False statement of the updater being enabled
+     */
+    public boolean isUpdaterEnabled() {
+        return updaterEnabled;
     }
 
     boolean isAllowName() {
         return allowName;
+    }
+
+    boolean isAllowNickname() {
+        return allowNickname;
     }
 
     boolean isAllowAge() {
@@ -114,7 +135,27 @@ public class ConfigUtils {
         return allowBio;
     }
 
-    public boolean isAllowLastName() {
-        return allowLastName;
+    public boolean useMySQL() {
+        return useMySQL;
+    }
+
+    String getAddress() {
+        return address;
+    }
+
+    int getPort() {
+        return port;
+    }
+
+    String getDatabase() {
+        return database;
+    }
+
+    String getUsername() {
+        return username;
+    }
+
+    String getPassword() {
+        return password;
     }
 }
