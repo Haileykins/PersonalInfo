@@ -17,6 +17,7 @@ public class ConfigUtils {
 
     private boolean updaterEnabled;
     private boolean allowName;
+    private boolean allowNickname;
     private boolean allowAge;
     private boolean allowBirthday;
     private boolean allowLocation;
@@ -45,6 +46,7 @@ public class ConfigUtils {
 
         updaterEnabled = config.getBoolean("Enable-Update-Notifications");
         allowName = config.getBoolean("Allow-Name");
+        allowNickname = config.getBoolean("Allow-Nickname");
         allowAge = config.getBoolean("Allow-Age");
         allowBirthday = config.getBoolean("Allow-Birthday");
         allowLocation = config.getBoolean("Allow-Location");
@@ -87,6 +89,10 @@ public class ConfigUtils {
 
     boolean isAllowName() {
         return allowName;
+    }
+
+    boolean isAllowNickname() {
+        return allowNickname;
     }
 
     boolean isAllowAge() {

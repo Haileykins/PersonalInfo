@@ -3,6 +3,7 @@ package me.haileykins.personalinfo.utils;
 class DataHelper {
 
     String name;
+    String nickname;
     Integer age;
     String birthday;
     String location;

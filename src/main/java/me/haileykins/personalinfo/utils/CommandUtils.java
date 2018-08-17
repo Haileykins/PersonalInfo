@@ -117,6 +117,10 @@ public class CommandUtils {
             return !cfgUtils.isAllowName();
         }
 
+        if (option.equalsIgnoreCase("nickname")) {
+            return !cfgUtils.isAllowNickname();
+        }
+
         if (option.equalsIgnoreCase("age")) {
             return !cfgUtils.isAllowAge();
         }
@@ -170,6 +174,10 @@ public class CommandUtils {
     public boolean validateType(String type) {
 
         if (type.equalsIgnoreCase("name")) {
+            return true;
+        }
+
+        if (type.equalsIgnoreCase("nickname")) {
             return true;
         }
 
@@ -239,9 +247,20 @@ public class CommandUtils {
 
         }
 
+        if (option.equalsIgnoreCase("nickname")) {
+
+            String regex = "[A-Za-z,\\s]{1,25}";
+
+            allowedChars = "A-Z, a-z, comma";
+            example = "Jass, Jassy, Jasper; Jass";
+            maxChar = 25;
+
+            return data.matches(regex);
+        }
+
         if (option.equalsIgnoreCase("age")) {
 
-            String regex = "\\d{1,2}";
+            String regex = "\\d(\\d)?";
 
             allowedChars = "0-9";
             example = "18";
@@ -265,7 +284,7 @@ public class CommandUtils {
 
         if (option.equalsIgnoreCase("location")) {
 
-            String regex = "[[A-Za-z]+,\\s[A-Za-z]]{1,35}";
+            String regex = "[[A-Za-z]+,\\s]{1,35}";
 
             allowedChars = "A-Z, a-z";
             example = "Texas; Texas, USA";

@@ -78,6 +78,7 @@ public class DatabaseUtils {
         String createTable = "CREATE TABLE playerdata " +
                 "(uuid VARCHAR(36)," +
                 "name VARCHAR(20)," +
+                "nickname VARCHAR(25), " +
                 "age INTEGER," +
                 "birthday VARCHAR(10)," +
                 "location VARCHAR(35)," +
@@ -152,7 +153,7 @@ public class DatabaseUtils {
         String check = "SELECT * FROM playerdata WHERE uuid = '" + player.getUniqueId() + "'";
         PreparedStatement checkStatement = null;
 
-        String createRecord = "INSERT INTO playerdata VALUES ('" + player.getUniqueId() + "', 'Not Set', 0, " +
+        String createRecord = "INSERT INTO playerdata VALUES ('" + player.getUniqueId() + "', 'Not Set', 'Not Set', 0, " +
                 "'Not Set', 'Not Set', 'Not Set', 'Not Set', 'Not Set', 'Not Set', 'Not Set', 'Not Set', 'Not Set')";
 
         PreparedStatement createStatement = null;
@@ -255,6 +256,7 @@ public class DatabaseUtils {
                 DataHelper data = new DataHelper();
 
                 data.name = results.getString("name");
+                data.nickname = results.getString("nickname");
                 data.age = results.getInt("age");
                 data.birthday = results.getString("birthday");
                 data.location = results.getString("location");
@@ -328,6 +330,7 @@ public class DatabaseUtils {
                 DataHelper data = new DataHelper();
 
                 data.name = results.getString("name");
+                data.nickname = results.getString("nickname");
                 data.age = results.getInt("age");
                 data.birthday = results.getString("birthday");
                 data.location = results.getString("location");
@@ -340,8 +343,12 @@ public class DatabaseUtils {
                 data.bio = results.getString("bio");
 
                 dataUtils.showInfoOthers(data, sender, target);
+                return;
 
             }
+
+            dataUtils.noDataOthers(sender, target.getName());
+
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

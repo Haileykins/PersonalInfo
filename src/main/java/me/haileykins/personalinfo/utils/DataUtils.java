@@ -26,6 +26,10 @@ public class DataUtils {
             player.sendMessage(msgUtils.getMessage("name-msg") + " " + data.name);
         }
 
+        if (cfgUtils.isAllowNickname()) {
+            player.sendMessage(msgUtils.getMessage("nickname-msg") + " " + data.nickname);
+        }
+
         if (cfgUtils.isAllowAge()) {
             if (data.age == 0) {
                 player.sendMessage(msgUtils.getMessage("age-msg") + " " + msgUtils.getMessage("data-not-set"));
@@ -76,12 +80,18 @@ public class DataUtils {
             sender.sendMessage(msgUtils.getMessage("name-msg") + " " + data.name);
         }
 
+        if (cfgUtils.isAllowNickname()) {
+            sender.sendMessage(msgUtils.getMessage("nickname-msg") + " " + data.nickname);
+        }
+
         if (cfgUtils.isAllowAge()) {
+
             if (data.age == 0) {
                 sender.sendMessage(msgUtils.getMessage("age-msg") + " " + msgUtils.getMessage("data-not-set"));
-                return;
+            } else {
+                sender.sendMessage(msgUtils.getMessage("age-msg") + " " + data.age);
             }
-            sender.sendMessage(msgUtils.getMessage("age-msg") + " " + data.age);
+
         }
 
         if (cfgUtils.isAllowBirthday()) {
@@ -103,12 +113,15 @@ public class DataUtils {
         if (cfgUtils.isAllowDiscord()) {
             sender.sendMessage(msgUtils.getMessage("discord-msg") + " " + data.discord);
         }
+
         if (cfgUtils.isAllowYoutube()) {
             sender.sendMessage(msgUtils.getMessage("youtube-msg") + " " + data.youtube);
         }
+
         if (cfgUtils.isAllowTwitch()) {
             sender.sendMessage(msgUtils.getMessage("twitch-msg") + " " + data.twitch);
         }
+
         if (cfgUtils.isAllowSteam()) {
             sender.sendMessage(msgUtils.getMessage("steam-msg") + " " + data.steam);
         }
@@ -128,7 +141,7 @@ public class DataUtils {
     }
 
     void clearInfoOthers(CommandSender sender, Player target) {
-        sender.sendMessage(msgUtils.getPrefixMessage("cleared-data-others").replace("{player}", target.toString()));
+        sender.sendMessage(msgUtils.getPrefixMessage("cleared-data-others").replace("{player}", target.getName()));
         target.sendMessage(msgUtils.getPrefixMessage("data-cleared-by-staff"));
     }
 

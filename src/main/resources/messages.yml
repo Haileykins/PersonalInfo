@@ -11,6 +11,7 @@ messages:
   reload-help-msg: "&2/pi reload lang or /pi reload config to reload files"
   plugin-out-of-date: "&cYour Version Is Outdated!"
   name-msg: "&2Name:&f"
+  nickname-msg: "&2Nickname:&f"
   age-msg: "&2Age:&f"
   birthday-msg: "&2Birthday:&f"
   location-msg: "&2Location:&f"

@@ -1,5 +1,6 @@
 Enable-Update-Notifications: true
 Allow-Name: true
+Allow-Nickname: true
 Allow-Age: true
 Allow-Birthday: true
 Allow-Location: true
