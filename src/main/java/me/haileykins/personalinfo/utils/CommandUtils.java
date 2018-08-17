@@ -62,6 +62,10 @@ public class CommandUtils {
             player.sendMessage(ChatColor.GOLD + "/pi set name " + ChatColor.DARK_GRAY + "(your name)");
         }
 
+        if (cfgUtils.isAllowNickname()) {
+            player.sendMessage(ChatColor.GOLD + "/pi set nickname " + ChatColor.DARK_GRAY + "(your nickname)");
+        }
+
         if (cfgUtils.isAllowAge()) {
             player.sendMessage(ChatColor.GOLD + "/pi set age " + ChatColor.DARK_GRAY + "(your age)");
         }
