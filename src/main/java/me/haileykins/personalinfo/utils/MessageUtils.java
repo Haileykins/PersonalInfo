@@ -106,5 +106,4 @@ public class MessageUtils {
             Bukkit.getLogger().severe("FAILED TO LOAD LANGUAGE FILE");
         }
     }
-
 }
